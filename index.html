@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="plugins/element-ui/index.css"/>
+
+</head>
+<body>
+<div class="dashboard-container" id="member-app">
+    <div class="container">
+        <div class="tableBar" style="margin-left: 100px " >
+            <el-input
+                    v-model="input"
+                    placeholder="请输入名片id"
+                    style="width: 250px"
+                    :type="number"
+                    clearable
+            ></el-input>
+
+            <el-date-picker v-model="peopleTime"
+                            clearable
+                            value-format="yyyy-MM-dd HH:mm:ss"
+                            type="datetimerange"
+                            placeholder="名片起始日期"
+                            range-separator="至"
+                            start-placeholder="名片开始日期"
+                            end-placeholder="名片结束日期"
+                            :default-time="['00:00:00', '23:59:59']"
+            ></el-date-picker>
+            <el-button type="primary" plain @click="init">查询</el-button>
+        </div>
+
+        <el-table
+                :header-cell-style="{ textAlign: 'center' }"
+                :cell-style="{ textAlign: 'center' }"
+                :data="tableData"
+                stripe
+                class="tableBox"
+                @selection-change="handleSelectionChange"
+        >
+            <el-table-column
+                    type="selection"
+            ></el-table-column>
+            <el-table-column
+                    prop="id"
+                    label="名片id"
+            ></el-table-column>
+            <el-table-column
+                    width="110px"
+                    prop="name"
+                    label="名字"
+            ></el-table-column>
+            <el-table-column
+                    prop="phone"
+                    label="电话">
+            </el-table-column>
+
+            <el-table-column
+                    prop="createTime"
+                    label="创建时间" >
+            </el-table-column>
+
+            <el-table-column label="购买状态" >
+                <template slot-scope="scope">
+                    {{ String(scope.row.status) === '0' ? '未购买' : '已购买' }}
+                </template>
+            </el-table-column>
+
+        </el-table>
+        <el-pagination
+                style="text-align: center"
+                class="pageList"
+                :page-sizes="[4,8,12]"
+                :page-size="pageSize"
+                layout="total, sizes, prev, pager, next, jumper"
+                :total="counts"
+                :current-page.sync="page"
+                @size-change="handleSizeChange"
+                @current-change="handleCurrentChange"
+        ></el-pagination>
+    </div>
+</div>
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="plugins/vue/vue.js"></script>
+<!-- 引入组件库 -->
+<script src="plugins/element-ui/index.js"></script>
+<!-- 引入axios -->
+<script src="plugins/axios/axios.min.js"></script>
+<script src="api/request.js"></script>
+<script src="api/api.js"></script>
+<script>
+    new Vue({
+        el: '#member-app',
+        data() {
+            return {
+                counts: 0,
+                page: 1,
+                pageSize: 4,
+                tableData: [],
+                peopleTime:'',
+                input:''
+
+            }
+        },
+        watch:{
+            peopleTime (val) {
+                if (val && val.length >= 2) {
+                    this.beginTime = val[0]
+                    this.endTime = val[1]
+                } else {
+                    this.beginTime = ''
+                    this.endTime = ''
+                }
+            }
+        },
+        computed: {
+
+        },
+        mounted() {
+            this.init()
+        },
+        methods: {
+            async init(){
+                const params = {
+                    page: this.page,
+                    pageSize: this.pageSize,
+                    id: this.input ? this.input : undefined,
+                    beginTime: this.beginTime?this.beginTime : undefined,
+                    endTime: this.endTime? this.endTime: undefined,
+                }
+
+                await queryPeople(params).then(res => {
+                    if (String(res.code) === '1') {
+                        this.tableData = res.data.records || []
+                        this.counts = res.data.total
+                    }
+                }).catch(err => {
+                    this.$message.error('请求出错了：' + err)
+                })
+            },
+            //分页方法
+            handleSizeChange(val)
+            {
+                this.pageSize = val
+                this.init()
+            }
+            ,
+            handleCurrentChange(val)
+            {
+                this.page = val
+                this.init()
+            },
+            handleSelectionChange(val)
+            {
+                let checkArr = []
+                val.forEach((n) => {
+                    checkArr.push(n.id)
+                })
+            },
+            },
+
+    })
+</script>
+</body>
+</html>
