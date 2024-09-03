@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+		<meta name="generator" content="Hugo 0.101.0">
+		<title>YanZhiBo</title>
+
+		<!-- Load style sheets -->
+
+		<script src="./js/jquery.min.js"></script>
+		<script src="./js/seedrandom.min.js"></script>
+		<script src="./bootstrap-4.6.2-dist/js/bootstrap.min.js"></script>
+		<link href="./bootstrap-4.6.2-dist/css/bootstrap.min.css" rel="stylesheet">
+		<style>
+			.article-post {
+				font-family: "sans-serif", "Georgia";
+				font-size: 20px;
+				line-height: 1.7;
+				text-indent: 2em;
+				margin: auto;
+				margin-top: 50px;
+			}
+
+			#video-icon1{
+				display: block;
+				position: relative;
+				top: 200px;
+				left: 250px;
+				z-index: 5;
+				
+				border-radius: 50%;
+				height: 48px;
+				width: 48px;
+				background-color: white;
+			}
+			
+			#video-icon1:hover{
+				cursor: pointer;
+				-webkit-filter: drop-shadow(0px 0px 10px white);
+			}
+			#video-icon2{
+				display: none;
+				position: relative;
+				top: 200px;
+				left: 250px;
+				z-index: 5;
+				
+				border-radius: 50%;
+				height: 48px;
+				width: 48px;
+				background-color: white;
+			}
+			#video-icon2:hover{
+				cursor: pointer;
+				-webkit-filter: drop-shadow(0px 0px 5px white);
+			}
+			
+			
+		</style>
+
+		<script>
+			$(document).ready(function(){
+				var Banner = document.getElementById("Banner");
+				var myVideo = document.getElementById("video1");
+				var playIcon = document.getElementById("video-icon1");
+				var pauseIcon = document.getElementById("video-icon2");
+				
+				//当点击video窗口时
+				$("#video1").click(function(){
+					console.log(pauseIcon.style.display);
+					if(pauseIcon.style.display == "none" || pauseIcon.style.display == ""){
+						playIcon.style.display = "none";
+						pauseIcon.style.display = "block";
+						pauseIcon.style.opacity = 1;
+					}else{
+						pauseIcon.style.display = "none";
+						playIcon.style.display = "block";
+					}
+				});
+				
+				//当播放图标被点击
+				playIcon.addEventListener("click",function(){
+					myVideo.play();
+					pauseIcon.style.display = "block";
+					playIcon.style.display = "none";
+					
+				});
+				
+				//当点击暂停图标时
+				$("#video-icon2").click(function(){
+					myVideo.pause();
+					pauseIcon.style.display = "none";
+					playIcon.style.display = "block";
+					
+				});
+				
+				//当鼠标悬浮于视频的窗口时
+				$("#video1").mouseover(function(){
+					if(pauseIcon.style.display == "block"){
+						pauseIcon.style.opacity = 1;
+					}
+					if(playIcon.style.display == "block"){
+						playIcon.style.opacity = 1;
+					}
+					myVideo.controls = "controls";
+					
+				});
+				
+				
+				//当鼠标悬浮于暂停图标时
+				$("#video-icon2").mouseover(function(){
+					if(pauseIcon.style.display == "block"){
+						pauseIcon.style.opacity = 1;
+					}
+					myVideo.controls = "controls";
+				});
+				
+				//当鼠标移出视频的窗口时
+				$("#video1").mouseout(function(){
+					if(pauseIcon.style.display == "block"){
+						pauseIcon.style.opacity = 0;
+					}
+					if(playIcon.style.display == "block"){
+						playIcon.style.opacity = 0;
+					}
+					myVideo.controls = false;
+				});
+				
+				//当鼠标悬浮于播放图标时
+				$("#video-icon1").mouseover(function(){
+					if(playIcon.style.display == "block"){
+						playIcon.style.opacity = 1;
+					}
+					myVideo.controls = "controls";
+				});
+				
+			});
+			</script>
+	</head>
+
+	<body>
+		<!--------------------------------------
+NAVBAR
+--------------------------------------->
+		<nav class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+			<div class="container" style="height: 70px;width:100%;">
+				<div style="width:70%; height: 65px;display: flex;align-items: center;margin: auto;font-size: 20px;">
+					<div style="width: 160px;display: flex;justify-content: center; align-items: center;">
+						<img class="logo-img" src="./images/logo.png"
+							style="width: 90px; height: 90px; border-radius: 50%;" alt="Description" />
+						<a class="navbar-brand" href="./index.html" style="margin: auto;"><strong>燕之波</strong></a>
+					</div>
+					</button>
+					<div class="navbar-collapse collapse" style="text-align: center;">
+						<ul class="navbar-nav mr-auto d-flex align-items-center">
+							<li class="nav-item">
+								<a class="nav-link" href="./index.html">首页<span class="sr-only">(current)</span></a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="./notice.html">通知公告</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="./activity.html">活动与展示</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="./member.html">成员组织</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="./study.html">学习与交流</a>
+							</li>
+						</ul>
+
+					</div>
+				</div>
+
+			</div>
+		</nav>
+		<!-- End Navbar -->
+
+		<!-- -------------------------------------修改中间主体内容   end----------------------------------- -->
+		<div class="container" style="margin-top: 100px;">
+
+			<div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
+				<div class="h-100 tofront">
+					<div class="row justify-content-between">
+						<div class="col-md-6 pt-6 pb-6 pr-6 align-self-center">
+							<p class="text-uppercase font-weight-bold">
+								<a class="text-danger">快讯</a>
+							</p>
+							<h1 class="display-4 secondfont mb-3 font-weight-bold">2024年全国青少年业余无线电测向锦标赛</h1>
+							<p class="mb-3">
+								燕之波协会由王浩、徐千壹、容伟洪组成的代表队参加了2024年全国青少年业余无线电测向锦标赛，
+								最终，代表队斩获男子144MHz团体接力银牌，男子个人全能金银牌，男子3.5MHz个人铜牌，女子快速测向个人铜牌，女子144MHz个人银牌。
+							</p>
+
+						</div>
+						<div class="col-md-6 pr-0">
+							<div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+								<div class="carousel-inner" style="border-radius: 3%;">
+
+									<div class="carousel-item active" data-interval="2000">
+										<img src="./images/activity/1.JPG" class="d-block w-100" alt="..."
+											style="height: 370px;">
+									</div>
+
+									<div class="carousel-item" data-interval="2000">
+										<img src="./images/activity/2.jpg" class="d-block w-100" alt="..."
+											style="height: 370px;">
+									</div>
+
+									<div class="carousel-item" data-interval="2000">
+										<img src="./images/activity/4.png" class="d-block w-100" alt="..."
+											style="height: 370px;">
+									</div>
+									<div class="carousel-item" data-interval="2000">
+										<img src="./images/activity/5.png" class="d-block w-100" alt="..."
+											style="height: 370px;">
+									</div>
+									<div class="carousel-item" data-interval="2000">
+										<img src="./images/activity/6.jpeg" class="d-block w-100" alt="..."
+											style="height: 370px;">
+									</div>
+									<div class="carousel-item" data-interval="2000">
+										<img src="./images/activity/3.jpg" class="d-block w-100" alt="..."
+											style="height: 370px;">
+									</div>
+								</div>
+
+
+
+								<button class="carousel-control-prev" type="button"
+									data-target="#carouselExampleInterval" data-slide="prev">
+									<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+									<span class="sr-only">Previous</span>
+								</button>
+								<button class="carousel-control-next" type="button"
+									data-target="#carouselExampleInterval" data-slide="next">
+									<span class="carousel-control-next-icon" aria-hidden="true"></span>
+									<span class="sr-only">Next</span>
+								</button>
+							</div><strong></strong>
+						</div>
+
+						<div class="col-md-12">
+							<article class="article-post col-md-9">
+								<p>
+									无线电测向，又叫无线电猎狐，是一项充满趣味的户外活动。
+									它类似于捉迷藏游戏，通过选手手中的测向机，在规定的区域内，通过监听信号强度和方向寻找藏在树丛中、楼宇间、花园里的电台。
+									这项运动不仅需要选手具备扎实的无线电知识，还需要他们有较强的体力和耐力。
+								</p>
+								<p>
+									无线电测向作为一项高科技含量的运动，与我国的科技强国战略有着密切的联系。国家对于科技创新和技术发展的重视程度日益提高，而无线电测向比赛恰恰是培养和选拔无线电技术人才的重要平台。
+									通过这样的比赛，能够激发大家对无线电技术的兴趣，提升创新能力和实践能力，从而为国家科技事业的发展贡献力量。
+								</p>
+								<p>
+									国家高度重视无线电测向运动的发展，计划将其纳入明年的全运会。
+									这不仅体现了国家对这项运动的认可，也展示了国家对科技教育和青少年科技素质培养的重视。作为一项新兴的体育项目，无线电测向将有助于推动全民健身和科技教育的结合，提升我国在国际科技领域的竞争力。
+									更令人振奋的消息是，明年的全国青少年业余无线电测向锦标赛将会在我们美丽的秦皇岛举办。
+									这是一个展示自我的绝佳机会，也是与全国各地的优秀选手交流学习的良好平台，学校鼓励广大同学积极参与。
+								</p>
+
+							</article>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container pt-4 pb-4">
+
+			<h5 class="font-weight-bold spanborder"><span>Read next</span></h5>
+			<hr />
+		</div>
+
+		<div class="container">
+
+			<div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
+				<div class="h-100 tofront">
+					<div class="row justify-content-between">
+						<div class="col-md-6 pt-6 pb-6 pr-6 align-self-center">
+							<p class="text-uppercase font-weight-bold">
+								<a class="text-danger">快讯</a>
+							</p>
+							<h1 class="display-4 secondfont mb-3 font-weight-bold">燕之波协会电子指南针成品展示</h1>
+							<p class="mb-3">
+								电子指南针完全由协会成员制作而成，包括电路设计、PCB制版、程序编写和应用测试。
+							</p>
+
+						</div>
+						<div class="col-md-6 pr-0">
+							<div id="carouselExampleInterval2" class="carousel slide" data-ride="carousel">
+								<div class="carousel-inner" style="border-radius: 3%;">
+
+									<div class="carousel-item active" data-interval="2000">
+										<img src="./images/activity/7.png" class="d-block w-100" alt="..."
+											style="height: 370px;">
+									</div>
+
+									<div class="carousel-item" data-interval="2000">
+										<img src="./images/activity/8.png" class="d-block w-100" alt="..."
+											style="height: 370px;">
+									</div>
+
+									<div class="carousel-item" data-interval="2000">
+										<img src="./images/activity/9.png" class="d-block w-100" alt="..."
+											style="height: 370px;">
+									</div>
+								</div>
+
+
+
+								<button class="carousel-control-prev" type="button"
+									data-target="#carouselExampleInterval2" data-slide="prev">
+									<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+									<span class="sr-only">Previous</span>
+								</button>
+								<button class="carousel-control-next" type="button"
+									data-target="#carouselExampleInterval2" data-slide="next">
+									<span class="carousel-control-next-icon" aria-hidden="true"></span>
+									<span class="sr-only">Next</span>
+								</button>
+							</div><strong></strong>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="container" style="margin-top: 50px;">
+			<hr>
+			<div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
+				<div class="h-100 tofront">
+					<div class="row justify-content-between">
+						<div class="col-md-6 pt-6 pb-6 pr-6 align-self-center">
+							<p class="text-uppercase font-weight-bold">
+								<a class="text-danger">快讯</a>
+							</p>
+							<h1 class="display-4 secondfont mb-3 font-weight-bold">2024年秦皇岛市无线电测向比赛</h1>
+							<p class="mb-3">
+								燕之波协会由王浩、徐千壹、容伟洪组成的代表队参加了2024年秦皇岛市无线电测向比赛，
+								最终斩获佳绩。
+							</p>
+
+						</div>
+
+						<div class="col-md-6" id="Banner">
+							<svg id='video-icon1' xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-caret-right-square-fill" viewBox="0 0 16 16">
+							  <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm5.5 10a.5.5 0 0 0 .832.374l4.5-4a.5.5 0 0 0 0-.748l-4.5-4A.5.5 0 0 0 5.5 4v8z"/>
+							</svg>
+							<svg id='video-icon2' xmlns="http://www.w3.org/2000/svg"  width="50" height="50" fill="currentColor" class="bi bi-pause-circle-fill" viewBox="0 0 16 16">
+							  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.25 5C5.56 5 5 5.56 5 6.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C7.5 5.56 6.94 5 6.25 5zm3.5 0c-.69 0-1.25.56-1.25 1.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C11 5.56 10.44 5 9.75 5z"/>
+							</svg>
+							<video id="video1" height="370px" width="550px"  loop="loop" preload="auto" >
+								<source src="./images/测向.MP4" type="video/mp4" 
+									>
+							</video>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- -------------------------------------修改中间主体内容  end----------------------------------- -->
+
+
+		<!--------------------------------------
+	  FOOTER
+	  --------------------------------------->
+		<div class="container mt-5">
+			<footer class="bg-white border-top p-3 text-muted small">
+				<div class="row align-items-center justify-content-between" style="height: 65px;">
+					<div style="align-items: center; width: 450px;">
+						<img class="logo-img" src="./images/logo.png"
+							style="width: 90px; height: 90px; border-radius: 50%;" alt="Description" />
+						<a class="navbar-brand" href="./index.html" style="margin: auto;"><strong>燕之波</strong></a>
+						<span style="margin-left: 20px;">Copyright &copy;</span>
+						<script>
+							document.write(new Date().getFullYear())
+						</script>
+						<span>. All rights reserved.</span>
+					</div>
+
+					<div>
+						Website was developed by <a target="_blank" class="text-secondary font-weight-bold"
+							href="https://www.wowthemes.net/mundana-free-html-bootstrap-template/">YanZhiBo</a>
+						Laboratory.
+					</div>
+				</div>
+			</footer>
+		</div>
+		<!-- End Footer -->
+	</body>
+
+
+</html>
