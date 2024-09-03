@@ -4,10 +4,8 @@
 	<head>
 
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta name="description" content="">
-		<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-		<meta name="generator" content="Hugo 0.101.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
 		<title>YanZhiBo</title>
 
 		<!-- Load style sheets -->
@@ -41,6 +39,7 @@
 				line-height: 42px !important;
 				text-align: left;
 			}
+			
 		</style>
 
 		
@@ -58,7 +57,18 @@ NAVBAR
 							style="width: 90px; height: 90px; border-radius: 50%;" alt="Description" />
 						<a class="navbar-brand" href="./index.html" style="margin: auto;"><strong>燕之波</strong></a>
 					</div>
-					</button>
+					<div class="dropdown" id="dropdown">
+					   <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+					      导航区
+					    </a>
+					  <div class="dropdown-menu">
+					    <a class="dropdown-item"  href="./index.html">首页</a>
+					    <a class="dropdown-item"  href="./notice.html">通知公告</a>
+					    <a class="dropdown-item"  href="./activity.html">活动与展示</a>
+						<a class="dropdown-item"  href="./member.html">成员组织</a>
+						<a class="dropdown-item"  href="./study.html">学习与交流</a>
+					  </div>
+					</div>
 					<div class="navbar-collapse collapse" style="text-align: center;">
 						<ul class="navbar-nav mr-auto d-flex align-items-center">
 							<li class="nav-item">
@@ -184,7 +194,45 @@ NAVBAR
 				$(".department").css("display",'none');
 				$(".member").css("display",'');
 			});
-			
+			function detectDeviceType() {
+			    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+			 
+			    // 检测是否为移动设备
+			    if (/android/i.test(userAgent)) {
+			        return 'Android Device';
+			    }
+			 
+			    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+			        return 'iOS Device';
+			    }
+			 
+			    // 检测是否为 Windows Phone 设备
+			    if (/windows phone/i.test(userAgent)) {
+			        return 'Windows Phone Device';
+			    }
+			 
+			    // 检查是否包含 "Mobile" 关键词，用于其他非 iOS/Android 移动设备
+			    if (/mobile/i.test(userAgent)) {
+			        return 'Mobile Device';
+			    }
+			 
+			    // 如果以上条件都不满足，我们假设是桌面设备
+			    return 'Desktop';
+			}
+			 
+			window.onload=function(){
+				
+				var device=detectDeviceType();
+				console.log(device)
+				if(device=='Desktop'){
+					$('#navbar').css('display','block')
+					$('#dropdown').css('display','none')
+				}else{
+					$('#navbar').css('display','none')
+					$('#dropdown').css('display','block')
+				}
+				
+			};
 		</script>
 
 </html>
