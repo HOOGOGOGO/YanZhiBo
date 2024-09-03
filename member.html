@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+		<meta name="generator" content="Hugo 0.101.0">
+		<title>YanZhiBo</title>
+
+		<!-- Load style sheets -->
+
+		<script src="./js/jquery.min.js"></script>
+		<script src="./js/seedrandom.min.js"></script>
+		<script src="./bootstrap-4.6.2-dist/js/bootstrap.min.js"></script>
+		<link href="./bootstrap-4.6.2-dist/css/bootstrap.min.css" rel="stylesheet">
+		<style>
+			.member-list {
+				font-size: 16px;
+				background-color: #E3E3E3;
+				border-bottom: 5px solid white;
+			}
+
+			.member-list:hover {
+				color: red;
+				cursor: pointer;
+			}
+
+			.member-body {
+				margin-left: 30px;
+				border: 1px solid grey;
+				border-radius: 10px;
+				background-color: #e3e3e3;
+			}
+
+			.member-body p {
+				font-size: 18px;
+				text-indent: 2em;
+				line-height: 42px !important;
+				text-align: left;
+			}
+		</style>
+
+		
+	</head>
+
+	<body>
+		<!--------------------------------------
+NAVBAR
+--------------------------------------->
+		<nav class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+			<div class="container" style="height: 70px;width:100%;">
+				<div style="width:70%; height: 65px;display: flex;align-items: center;margin: auto;font-size: 20px;">
+					<div style="width: 160px;display: flex;justify-content: center; align-items: center;">
+						<img class="logo-img" src="./images/logo.png"
+							style="width: 90px; height: 90px; border-radius: 50%;" alt="Description" />
+						<a class="navbar-brand" href="./index.html" style="margin: auto;"><strong>燕之波</strong></a>
+					</div>
+					</button>
+					<div class="navbar-collapse collapse" style="text-align: center;">
+						<ul class="navbar-nav mr-auto d-flex align-items-center">
+							<li class="nav-item">
+								<a class="nav-link" href="./index.html">首页<span class="sr-only">(current)</span></a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="./notice.html">通知公告</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="./activity.html">活动与展示</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="./member.html">成员组织</a>
+							</li>
+							
+							<li class="nav-item">
+								<a class="nav-link" href="./study.html">学习与交流</a>
+							</li>
+						</ul>
+
+					</div>
+				</div>
+
+			</div>
+		</nav>
+		<!-- End Navbar -->
+
+		<!-- -------------------------------------修改中间主体内容   end----------------------------------- -->
+		<div class="container" style="margin-top: 100px; text-align: center;align-items: center;">
+			<div class="row no-gutters">
+				<div class="col-md-3">
+					<div class="card" style="width: 18rem;border: 1px solid grey;">
+						<div class="card-body" style="font-size: 30px;background: #9abbf4;">
+							<h4 class="card-title">协会概况</h4>
+						</div>
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item member-list" id="introduce">总体介绍</li>
+							<li class="list-group-item member-list" id="department">部门介绍</li>
+							<li class="list-group-item member-list" id="member">人员介绍</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-md-8  member-body">
+					<div class="card-body introduce" >
+						<h4 class="card-title" style="height: 50px;line-height: 2;">燕山大学无线电测向协会（燕之波）简介</h4>
+						<hr style="size: 10px">
+						<p class="card-text">燕山大学燕之波协会旨在为燕山大学无线电爱好者提供学习、交流和动手实践的平台，
+							让每位成员了解和学习无线电知识，同时向广大学生传播无线电文化，助力每个无线电爱好者实现梦想。</p>
+						<p>协会始终以“普及无线电测向运动，传播无线电文化”为主要宗旨，开展各项活动，培养无线电爱好者,让每位参与者充分享受无线电乐趣。</p>
+						<p>“突破自我，追求卓越”是属于我们社团独特的一种精神，在协会的方方面面，我们始终坚持团结一心，共同面对各种挑战，勇往直前。
+							我们将始终发扬这种独特精神，共同迎接更多挑战，创造更多辉煌。</p>
+
+					</div>
+					<div class="card-body department" style="display: none;">
+						<h4 class="card-title" style="height: 50px;line-height: 2;">燕山大学无线电测向协会（燕之波）部门介绍</h4>
+						<hr style="size: 10px">
+						<p class="card-text">燕之波协会主要由硬件组、软件组和测向组三个部门组成。</p>
+						<p>硬件组主要负责电路板设计、元器件焊接和无线电设备硬件层的开发工作。</p>
+						<p>软件组主要负责无线电相关软件开发等工作。</p>
+						<p>测向组主要负责开展无线电测向活动，组织相关训练、比赛等工作。</p>
+					</div>
+					
+					<div class="card-body member" style="display: none;">
+						<h4 class="card-title" style="height: 50px;line-height: 2;">燕山大学无线电测向协会（燕之波）人员介绍</h4>
+						<hr style="size: 10px">
+						<p class="card-text">协会设立一名队长、副队长二名和各一名部门负责人，共同组成燕之波协会管理层，负责人员调度，项目开发和社团管理工作。</p>
+						<p>队长：容伟洪</p>
+						<p>副队长：徐千壹、王浩</p>
+						<p>硬件组负责人：徐千壹</p>
+						<p>软件组负责人：容伟洪</p>
+						<p>测向组负责人：王浩</p>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+
+		<!-- -------------------------------------修改中间主体内容  end----------------------------------- -->
+
+
+		<!--------------------------------------
+	  FOOTER
+	  --------------------------------------->
+		<div class="container mt-5" style="margin-top: 50px;">
+			<footer class="bg-white border-top p-3 text-muted small">
+				<div class="row align-items-center justify-content-between" style="height: 65px;">
+					<div style="align-items: center; width: 450px;">
+						<img class="logo-img" src="./images/logo.png"
+							style="width: 90px; height: 90px; border-radius: 50%;" alt="Description" />
+						<a class="navbar-brand" href="./index.html" style="margin: auto;"><strong>燕之波</strong></a>
+						<span style="margin-left: 20px;">Copyright &copy;</span>
+						<script>
+							document.write(new Date().getFullYear())
+						</script>
+						<span>. All rights reserved.</span>
+					</div>
+
+					<div>
+						Website was developed by <a target="_blank" class="text-secondary font-weight-bold"
+							href="https://www.wowthemes.net/mundana-free-html-bootstrap-template/">YanZhiBo</a>
+						Laboratory.
+					</div>
+				</div>
+			</footer>
+		</div>
+		<!-- End Footer -->
+	</body>
+		<script>
+			$("#introduce").on('click',function(){
+				$(".introduce").css("display",'');
+				$(".department").css("display",'none');
+				$(".member").css("display",'none');
+			});
+			$("#department").on('click',function(){
+				$(".introduce").css("display",'none');
+				$(".department").css("display",'');
+				$(".member").css("display",'none');
+			});
+			$("#member").on('click',function(){
+				$(".introduce").css("display",'none');
+				$(".department").css("display",'none');
+				$(".member").css("display",'');
+			});
+			
+		</script>
+
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+		<meta name="generator" content="Hugo 0.101.0">
+		<title>YanZhiBo</title>
+
+		<!-- Load style sheets -->
+
+		<script src="./js/jquery.min.js"></script>
+		<script src="./js/seedrandom.min.js"></script>
+		<script src="./bootstrap-4.6.2-dist/js/bootstrap.min.js"></script>
+		<link href="./bootstrap-4.6.2-dist/css/bootstrap.min.css" rel="stylesheet">
+		<style>
+			.member-list {
+				font-size: 16px;
+				background-color: #E3E3E3;
+				border-bottom: 5px solid white;
+			}
+			
+			.member-list:hover {
+				color: red;
+				cursor: pointer;
+			}
+			a{
+				text-decoration: none;
+				color: black;
+			}
+			a:hover{
+				text-decoration: none;
+			}
+			
+			
+		</style>
+			
+		
+	</head>
+
+	<body>
+		<!--------------------------------------
+NAVBAR
+--------------------------------------->
+		<nav class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+			<div class="container" style="height: 70px;width:100%;">
+				<div style="width:70%; height: 65px;display: flex;align-items: center;margin: auto;font-size: 20px;">
+					<div style="width: 160px;display: flex;justify-content: center; align-items: center;">
+						<img class="logo-img" src="./images/logo.png"
+							style="width: 90px; height: 90px; border-radius: 50%;" alt="Description" />
+						<a class="navbar-brand" href="./index.html" style="margin: auto;"><strong>燕之波</strong></a>
+					</div>
+					</button>
+					<div class="navbar-collapse collapse" style="text-align: center;">
+						<ul class="navbar-nav mr-auto d-flex align-items-center">
+							<li class="nav-item">
+								<a class="nav-link" href="./index.html">首页<span class="sr-only">(current)</span></a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="./notice.html">通知公告</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="./activity.html">活动与展示</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="./member.html">成员组织</a>
+							</li>
+
+							<li class="nav-item">
+								<a class="nav-link" href="./study.html">学习与交流</a>
+							</li>
+						</ul>
+
+					</div>
+				</div>
+
+			</div>
+		</nav>
+		<!-- End Navbar -->
+
+		<!-- -------------------------------------修改中间主体内容   end----------------------------------- -->
+		<div class="container" style="margin-top: 100px;">
+			<div class="row no-gutters">
+				<div class="col-md-3" >
+					<div class="card" style="width: 18rem;border: 1px solid grey;">
+						<div class="card-body" style="font-size: 30px;background: #9abbf4;">
+							<h4 class="card-title">学习与交流</h4>
+						</div>
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item member-list" id="introduce" onclick="showContent('learn')">学习资料</li>
+							<li class="list-group-item member-list" id="department" onclick="showContent('tech')">相关技术</li>
+							
+						</ul>
+					</div>
+					
+					
+				</div>
+				<div class="col-md-8" style="margin-left: 50px;">
+					
+					<div class="content-area active" id="content-learn">
+					    <h2>学习资料</h2>
+					    <p>欢迎来到燕之波社团的学习与交流专区！</p>
+					    <div class="mt-4">
+					        <h3>学习资源</h3>
+					        <p>在这里你可以找到各种学习资源：</p>
+					        <ul >
+					            <li><a href="<url id="" type="url" status="" title="" wc="" href="#">推荐书籍1</a></li>  
+					            <li><a href="<url id="" type="url" status="" title="" wc="" href="#">推荐书籍2</a></li> 
+					            <li><a href="<url id="" type="url" status="" title="" wc=""  href="#">推荐书籍3</a></li>  
+					        </ul>
+					    </div>
+					    <div class="mt-4">
+					        <h3>技能工作坊</h3>
+					        <p>我们定期举办各类技能工作坊，帮助大家提升专业技能：</p>
+					        <div class="card mb-3" style="max-width: 540px;">
+					            <div class="row no-gutters">
+					                <div class="col-md-4">
+					                    <img src="./images/p1.jpg" class="card-img" alt="...">
+					                </div>
+					                <div class="col-md-8">
+					                    <div class="card-body">
+					                        <h5 class="card-title">工作坊1标题</h5>
+					                        <p class="card-text">这是工作坊1的简短描述……</p>
+					                        <p class="card-text"><small class="text-muted">Last updated 3 days ago</small></p>
+					                    </div>
+					                </div>
+					            </div>
+					        </div>
+					    </div>
+					</div>
+					
+					<div class="content-area" id="content-tech">
+					    <h2></h2>
+					    <p></p>
+					    <div class="row">
+					        <!-- 技术卡片 -->
+					        <div class="col-md-6 col-lg-4 mb-4" onclick="showDetails('tech1')">
+					            <div class="card h-100">
+					                <div class="card-body">
+					                    <h5 class="card-title">电路板焊接</h5>
+					                    <p class="card-text">点击了解更多</p>
+					                </div>
+					            </div>
+					        </div>
+					        <div class="col-md-6 col-lg-4 mb-4" onclick="showDetails('tech2')">
+					            <div class="card h-100">
+					                <div class="card-body">
+					                    <h5 class="card-title">电路设计</h5>
+					                    <p class="card-text">点击了解更多</p>
+					                </div>
+					            </div>
+					        </div>
+					        <div class="col-md-6 col-lg-4 mb-4" onclick="showDetails('tech3')">
+					            <div class="card h-100">
+					                <div class="card-body">
+					                    <h5 class="card-title">PCB制板</h5>
+					                    <p class="card-text">点击了解更多</p>
+					                </div>
+					            </div>
+					        </div>
+					        <div class="col-md-6 col-lg-4 mb-4" onclick="showDetails('tech4')">
+					            <div class="card h-100">
+					                <div class="card-body">
+					                    <h5 class="card-title">3D打印建模</h5>
+					                    <p class="card-text">点击了解更多</p>
+					                </div>
+					            </div>
+					        </div>
+					        <div class="col-md-6 col-lg-4 mb-4" onclick="showDetails('tech5')">
+					            <div class="card h-100">
+					                <div class="card-body">
+					                    <h5 class="card-title">单片机编程</h5>
+					                    <p class="card-text">点击了解更多</p>
+					                </div>
+					            </div>
+					        </div>
+					        <div class="col-md-6 col-lg-4 mb-4" onclick="showDetails('tech6')">
+					            <div class="card h-100">
+					                <div class="card-body">
+					                    <h5 class="card-title">物联网技术</h5>
+					                    <p class="card-text">点击了解更多</p>
+					                </div>
+					            </div>
+					        </div>
+					        <div class="col-md-6 col-lg-4 mb-4" onclick="showDetails('tech7')">
+					            <div class="card h-100">
+					                <div class="card-body">
+					                    <h5 class="card-title">计算机视觉</h5>
+					                    <p class="card-text">点击了解更多</p>
+					                </div>
+					            </div>
+					        </div>
+					    </div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- -------------------------------------修改中间主体内容  end----------------------------------- -->
+
+
+		<!--------------------------------------
+	  FOOTER
+	  --------------------------------------->
+		<div class="container mt-5">
+			<footer class="bg-white border-top p-3 text-muted small">
+				<div class="row align-items-center justify-content-between" style="height: 65px;">
+					<div style="align-items: center; width: 450px;">
+						<img class="logo-img" src="./images/logo.png"
+							style="width: 90px; height: 90px; border-radius: 50%;" alt="Description" />
+						<a class="navbar-brand" href="./index.html" style="margin: auto;"><strong>燕之波</strong></a>
+						<span style="margin-left: 20px;">Copyright &copy;</span>
+						<script>
+							document.write(new Date().getFullYear())
+						</script>
+						<span>. All rights reserved.</span>
+					</div>
+
+					<div>
+						Website was developed by <a target="_blank" class="text-secondary font-weight-bold"
+							href="https://www.wowthemes.net/mundana-free-html-bootstrap-template/">YanZhiBo</a>
+						Laboratory.
+					</div>
+				</div>
+			</footer>
+		</div>
+		<!-- End Footer -->
+		<script>
+			function showContent(id) {
+			    // 隐藏所有内容区域
+			    $('.content-area').hide();
+			    // 显示指定的内容区域
+			    $('#' + 'content-' + id).show().addClass('active');
+			    // 更新侧边栏项的样式
+			    // $('.list-group-item').removeClass('active');
+			    // $('li[onclick="showContent(\'' + id + '\')"]').addClass('active');
+			}
+			
+			// 默认显示第一个内容区域（书籍推荐）
+			showContent('learn');
+			//showContent('tech');
+			// 显示详细信息的函数
+			// 显示详细信息的函数
+			// 显示详细信息的函数
+			function showDetails(id) {
+			    // 隐藏所有卡片
+			    var cards = document.querySelectorAll('.col-md-6.col-lg-4.mb-4');
+			    cards.forEach(function(card) {
+			        card.style.display = 'none';
+			    });
+			
+			    // 定义详细内容
+			    var details = {
+			        'tech1': '<h2>电路板焊接详情</h2><p>这里是关于电路板焊接的详细信息...</p>',
+			        'tech2': '<h2>电路设计详情</h2><p>这里是关于电路设计的详细信息...</p>',
+			        'tech3': '<h2>PCB制版详情</h2><p>这里是关于PCB制版的详细信息...</p>',
+			        'tech4': '<h2>3D打印建模详情</h2><p>这里是关于3D打印建模的详细信息...</p>',
+			        'tech5': '<h2>单片机编程</h2><p>这里是关于单片机编程的详细信息...</p>',
+			        'tech6': '<h2>物联网技术</h2><p>这里是关于物联网技术的详细信息...</p>',
+			        'tech7': '<h2>计算机视觉</h2><p>这里是关于计算机视觉的详细信息...</p>'
+			        // 其他技术的详情...
+			    };
+			
+			    // 清空当前内容
+			    var cardContainer = document.querySelector('.content-area#content-tech .row');
+				console.log(cardContainer.innerHTML)
+			    //cardContainer.innerHTML = ''; 
+			
+			    // 添加详细内容和返回按钮
+			    if (details[id]) {
+			        var detailDiv = document.createElement('div');
+					var id_str=id+ '-details'
+					detailDiv.id=id_str+'-content';
+					
+					
+			        detailDiv.innerHTML = details[id] +
+					 '<button id="' + id_str +' " type="button" class="btn btn-outline-primary" onclick="returnToCards(\''+id_str +'\')">Back'+
+					 	'<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"'+
+					 		'class="bi bi-arrow-return-left" viewBox="0 0 16 16">'+
+					 		'<path fill-rule="evenodd"'+
+					 			'd="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z" />'
+					 	+'</svg></button>'
+					 
+					 // '<button id="return-button-${id}" onclick="returnToCards("'+id_str+'")>← 返回</button>`;
+			        cardContainer.appendChild(detailDiv);
+			
+			        // 给返回按钮添加点击事件
+			        
+			    } else {
+			        cardContainer.innerHTML = '<p>未找到该技术的详细信息。</p>';
+			    }
+			}
+			
+			// 返回到卡片列表的函数
+			function returnToCards(id) {
+				//alert('asssssssss')
+			    // 重新显示所有的卡片
+			    var cards = document.querySelectorAll('.col-md-6.col-lg-4.mb-4');
+				
+			    
+			
+			    // 清空详细信息区域
+				
+			    var detailsContainer = document.querySelector('#'+id+'-content');
+				detailsContainer.remove(detailsContainer)
+				// console.log(detailsContainer.innerHTML)
+				// detailsContainer.innerHTML = ''; 
+				
+				//showContent('tech');
+			    cards.forEach(function(card) {
+			        card.style.display = 'block';
+			    });
+				
+			}
+		</script>
+	</body>
+
+
+</html>

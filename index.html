@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+		<meta name="generator" content="Hugo 0.101.0">
+		<title>YanZhiBo</title>
+
+		<!-- Load style sheets -->
+
+		<script src="./js/jquery.min.js"></script>
+		<script src="./js/seedrandom.min.js"></script>
+		<script src="./bootstrap-4.6.2-dist/js/bootstrap.min.js"></script>
+		<link href="./bootstrap-4.6.2-dist/css/bootstrap.min.css" rel="stylesheet">
+		<style>
+			.sidebar ul {
+				list-style-type: none;
+				padding: 0;
+			}
+
+			.sidebar a {
+				display: block;
+				padding: 10px;
+				text-decoration: none;
+				color: #333;
+			}
+
+			.sidebar a:hover {
+				background-color: #fbfdff;
+				/* Slightly lighter white for hover effect */
+			}
+
+			
+
+			.content section {
+				display: none;
+			}
+
+			.content section.active {
+				display: block;
+			}
+
+			@media (max-width: 768px) {
+				.sidebar {
+					position: static;
+					width: 100%;
+					margin-top: 10px;
+				}
+
+				.content {
+					margin-right: 0;
+				}
+
+				.left-carousel {
+					position: relative;
+					left: auto;
+					top: auto;
+					width: 100%;
+					height: auto;
+				}
+			}
+		</style>
+		<script>
+		    function toggleContent(sectionId) {
+		        // Hide all sections
+		        document.querySelectorAll('.content section').forEach(function (section) {
+		            section.classList.remove('active');
+		        });
+		
+		        // Show the selected section
+		        document.getElementById(sectionId).classList.add('active');
+		    }
+		
+		    // Default to show "introduction" on page load
+		    toggleContent('introduction');
+		</script>
+
+	</head>
+
+	<body>
+		<!--------------------------------------
+NAVBAR
+--------------------------------------->
+		<nav class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+			<div class="container" style="height: 70px;width:100%;">
+				<div style="width:70%; height: 65px;display: flex;align-items: center;margin: auto;font-size: 20px;">
+					<div style="width: 160px;display: flex;justify-content: center; align-items: center;">
+						<img class="logo-img" src="./images/logo.png"
+							style="width: 90px; height: 90px; border-radius: 50%;" alt="Description" />
+						<a class="navbar-brand" href="./index.html" style="margin: auto;"><strong>燕之波</strong></a>
+					</div>
+					</button>
+					<div class="navbar-collapse collapse" style="text-align: center;">
+						<ul class="navbar-nav mr-auto d-flex align-items-center">
+							<li class="nav-item">
+								<a class="nav-link" href="./index.html">首页<span class="sr-only">(current)</span></a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="./notice.html">通知公告</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="./activity.html">活动与展示</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="./member.html">成员组织</a>
+							</li>
+
+							<li class="nav-item">
+								<a class="nav-link" href="./study.html">学习与交流</a>
+							</li>
+						</ul>
+
+					</div>
+				</div>
+
+			</div>
+		</nav>
+		<!-- End Navbar -->
+
+		<!-- -------------------------------------修改中间主体内容   end----------------------------------- -->
+		<div class="container" style="margin-top: 100px;">
+			<div class="row no-gutters">
+				<div class="col-md-3">
+
+					<aside class="sidebar" style=" background-color: white; padding: 20px;">
+						<h3>无线电相关</h3>
+						<ul class="list-unstyled">
+							<li><a href="#" onclick="toggleContent('introduction')">无线电的简介</a></li>
+							<li><a href="#" onclick="toggleContent('history')">无线电的历史</a></li>
+						</ul>
+					</aside>
+				</div>
+				<div class="col-md-9 content">
+					<section id="introduction" class="active">
+						<h2>无线电技术简介</h2>
+						<p>无线电技术是一种利用无线电波在发射端和接收端之间进行信息传输的技术。它在19世纪末由几位科学家和发明家的研究中诞生，其中包括尼古拉·特斯拉和伽利尔摩·马可尼。无线电波是一种电磁波，具有波长和频率，可以在自由空间中传播而不需要任何物理介质，如电线或光纤。
+						</p>
+						<p>无线电技术的应用非常广泛，包括但不限于以下几个领域：</p>
+						<ul>
+							<li><strong>通信：</strong>无线电波用于电话、传真、无线电广播和电视广播，以及卫星通信。</li>
+							<li><strong>导航：</strong>全球定位系统（GPS）和其他导航系统使用无线电信号来确定位置和提供导航服务。</li>
+							<li><strong>遥控：</strong>遥控器使用无线电信号来控制电视、音响和其他家用电子设备。</li>
+							<li><strong>紧急服务：</strong>警察、消防和救护车等服务依赖无线电通信来协调紧急响应。</li>
+							<li><strong>军事：</strong>无线电用于军事通信、雷达系统和导弹制导。</li>
+							<li><strong>业余爱好：</strong>业余无线电爱好者（HAM）使用无线电设备进行全球通信和实验。</li>
+						</ul>
+						<p>无线电技术的发展不仅推动了通信领域的革命，也极大地促进了科学探索和技术创新。随着无线通信技术的不断进步，如蓝牙、Wi-Fi和5G，无线电的应用将更加广泛和深入人们的日常生活。</p>
+					</section>
+					<section id="history">
+						<h2>无线电的历史</h2>
+						<p>无线电技术的发展可以追溯到19世纪末，当时许多科学家开始研究电磁波的性质。尼古拉·特斯拉和伽利尔摩·马可尼是无线电技术的重要先驱之一。特斯拉在1893年的美国电气工程师学会会议上展示了无线传输的可能性，而马可尼则成功实现了跨越英吉利海峡的无线电通信，这标志着无线电技术的重大突破。
+						</p>
+						<p>随着时间的推移，无线电技术不断发展，从最初的简单点对点通信发展到了今天的复杂网络。第二次世界大战期间，无线电技术得到了广泛应用，包括雷达系统和通信设备。战后，无线电技术继续快速发展，引入了许多新的应用，如移动电话、无线互联网等。
+						</p>
+					</section>
+				</div>
+			</div>
+		</div>
+
+		<!-- -------------------------------------修改中间主体内容  end----------------------------------- -->
+
+
+		<!--------------------------------------
+	  FOOTER
+	  --------------------------------------->
+		<div class="container mt-5">
+			<footer class="bg-white border-top p-3 text-muted small">
+				<div class="row align-items-center justify-content-between" style="height: 65px;">
+					<div style="align-items: center; width: 450px;">
+						<img class="logo-img" src="./images/logo.png"
+							style="width: 90px; height: 90px; border-radius: 50%;" alt="Description" />
+						<a class="navbar-brand" href="./index.html" style="margin: auto;"><strong>燕之波</strong></a>
+						<span style="margin-left: 20px;">Copyright &copy;</span>
+						<script>
+							document.write(new Date().getFullYear())
+						</script>
+						<span>. All rights reserved.</span>
+					</div>
+
+					<div>
+						Website was developed by <a target="_blank" class="text-secondary font-weight-bold"
+							href="https://www.wowthemes.net/mundana-free-html-bootstrap-template/">YanZhiBo</a>
+						Laboratory.
+					</div>
+				</div>
+			</footer>
+		</div>
+		<!-- End Footer -->
+		
+	</body>
+
+
+</html>
