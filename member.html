@@ -64,7 +64,7 @@ NAVBAR
 					  <div class="dropdown-menu">
 					    <a class="dropdown-item"  href="./index.html">首页</a>
 					    <a class="dropdown-item"  href="./notice.html">通知公告</a>
-					    <a class="dropdown-item"  href="./activity.html">活动与展示</a>
+					    <a class="dropdown-item"  href="./activity.html">项目与活动</a>
 						<a class="dropdown-item"  href="./member.html">成员组织</a>
 						<a class="dropdown-item"  href="./study.html">学习与交流</a>
 					  </div>
@@ -78,7 +78,7 @@ NAVBAR
 								<a class="nav-link" href="./notice.html">通知公告</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="./activity.html">活动与展示</a>
+								<a class="nav-link" href="./activity.html">项目与活动</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="./member.html">成员组织</a>
@@ -108,12 +108,13 @@ NAVBAR
 							<li class="list-group-item member-list" id="introduce">总体介绍</li>
 							<li class="list-group-item member-list" id="department">部门介绍</li>
 							<li class="list-group-item member-list" id="member">人员介绍</li>
+							<li class="list-group-item member-list" id="teacher">指导老师</li>
 						</ul>
 					</div>
 				</div>
 
 				<div class="col-md-8  member-body">
-					<div class="card-body introduce" >
+					<div class="card-body introduce"style="display：none" >
 						<h4 class="card-title" style="height: 50px;line-height: 2;">燕山大学无线电测向协会（燕之波）简介</h4>
 						<hr style="size: 10px">
 						<p class="card-text">燕山大学燕之波协会旨在为燕山大学无线电爱好者提供学习、交流和动手实践的平台，
@@ -126,14 +127,16 @@ NAVBAR
 					<div class="card-body department" style="display: none;">
 						<h4 class="card-title" style="height: 50px;line-height: 2;">燕山大学无线电测向协会（燕之波）部门介绍</h4>
 						<hr style="size: 10px">
-						<p class="card-text">燕之波协会主要由硬件组、软件组和测向组三个部门组成。</p>
-						<p>硬件组主要负责电路板设计、元器件焊接和无线电设备硬件层的开发工作。</p>
-						<p>软件组主要负责无线电相关软件开发等工作。</p>
-						<p>测向组主要负责开展无线电测向活动，组织相关训练、比赛等工作。</p>
+						<p class="card-text">燕之波协会主要由硬件部,软件部,应用部,宣传部,测向部五个部门组成。</p>
+						<p>硬件部主要负责电路板设计、元器件焊接和无线电设备硬件层的开发工作。</p>
+						<p>软件部主要负责无线电相关软件开发等工作。</p>
+						<p>应用部主要负责开展无线电测向活动，组织相关训练、比赛等工作。</p>
+						<p>宣传部主要负责电路板设计、元器件焊接和无线电设备硬件层的开发工作。</p>
+						<p>测向部主要负责无线电相关软件开发等工作。</p>
 					</div>
 					
 					<div class="card-body member" style="display: none;">
-						<h4 class="card-title" style="height: 50px;line-height: 2;">燕山大学无线电测向协会（燕之波）人员介绍</h4>
+						<h4 class="card-title" style="height: 50px;line-height: 2;">燕山大学无线电测向(燕之波)人员介绍</h4>
 						<hr style="size: 10px">
 						<p class="card-text">协会设立一名队长、副队长二名和各一名部门负责人，共同组成燕之波协会管理层，负责人员调度，项目开发和社团管理工作。</p>
 						<p>队长：容伟洪</p>
@@ -141,10 +144,17 @@ NAVBAR
 						<p>硬件组负责人：徐千壹</p>
 						<p>软件组负责人：容伟洪</p>
 						<p>测向组负责人：王浩</p>
+						<p>QQ：容伟洪：1711446177 徐千壹：88010217 王浩：2205851450</p>
+						<p>邮箱：1711446177@qq.com</p>
+					</div>
+					<div class="card-body teacher" style="display: none;">
+						<h4 class="card-title" style="height: 50px;line-height: 2;">燕山大学无线电测向(燕之波)教师介绍</h4>
+						<hr style="size: 10px">
+						<p class="card-text">协会指导老师</p>
+						<p>王林：<a class="WL" href="https://web.ysu.edu.cn/LinW/zh_CN/index.htm" target="_blank">https://web.ysu.edu.cn/LinW/zh_CN/index.htm</a></p>
+						<p>郭丁丁：<a class="gdd" href="https://web.ysu.edu.cn/gdd/zh_CN/index.htm" target="_blank">https://web.ysu.edu.cn/gdd/zh_CN/index.htm</a></p>
 					</div>
 				</div>
-
-
 			</div>
 		</div>
 
@@ -183,16 +193,25 @@ NAVBAR
 				$(".introduce").css("display",'');
 				$(".department").css("display",'none');
 				$(".member").css("display",'none');
+				$(".teacher").css("display",'none');
 			});
 			$("#department").on('click',function(){
 				$(".introduce").css("display",'none');
 				$(".department").css("display",'');
 				$(".member").css("display",'none');
+				$(".teacher").css("display",'none');
 			});
 			$("#member").on('click',function(){
 				$(".introduce").css("display",'none');
 				$(".department").css("display",'none');
 				$(".member").css("display",'');
+				$(".teacher").css("display",'none');
+			});
+			$("#teacher").on('click',function(){
+				$(".introduce").css("display",'none');
+				$(".department").css("display",'none');
+				$(".member").css("display",'none');
+				$(".teacher").css("display",'');
 			});
 			function detectDeviceType() {
 			    const userAgent = navigator.userAgent || navigator.vendor || window.opera;

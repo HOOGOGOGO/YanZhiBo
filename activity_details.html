@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>YanZhiBo</title>
+
+		<!-- Load style sheets -->
+
+		<script src="./js/jquery.min.js"></script>
+		<script src="./js/seedrandom.min.js"></script>
+		<script src="./bootstrap-4.6.2-dist/js/bootstrap.min.js"></script>
+		<link href="./bootstrap-4.6.2-dist/css/bootstrap.min.css" rel="stylesheet">
+		<style>
+			h1 {
+				width: 100%;
+				height: 70px;
+				text-align: center;
+				font-family: "Playfair Display", "Segoe UI", "Helvetica Neue", "Arial";
+				margin-top: 11px;
+			}
+
+			.picture-carousel {
+				margin: auto;
+			}
+
+			.carousel-item img {
+				width: 100%;
+				height: 400px;
+				border-radius: 5px;
+				z-index: 1;
+			}
+
+			.content {
+				width: 80%;
+				margin: auto;
+				margin-top: 50px;
+			}
+
+			.content p {
+				margin-bottom: 1rem;
+				font-size: 20px;
+				line-height: 2;
+			}
+		</style>
+
+		<script>
+			let id;
+
+			function detectDeviceType() {
+				const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+				// 检测是否为移动设备
+				if (/android/i.test(userAgent)) {
+					return 'Android Device';
+				}
+
+				if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+					return 'iOS Device';
+				}
+
+				// 检测是否为 Windows Phone 设备
+				if (/windows phone/i.test(userAgent)) {
+					return 'Windows Phone Device';
+				}
+
+				// 检查是否包含 "Mobile" 关键词，用于其他非 iOS/Android 移动设备
+				if (/mobile/i.test(userAgent)) {
+					return 'Mobile Device';
+				}
+
+				// 如果以上条件都不满足，我们假设是桌面设备
+				return 'Desktop';
+			}
+
+			window.onload = function() {
+
+				var device = detectDeviceType();
+				console.log(device)
+				if (device == 'Desktop') {
+					$('#navbar').css('display', 'block')
+					$('#dropdown').css('display', 'none')
+				} else {
+					$('#navbar').css('display', 'none')
+					$('#dropdown').css('display', 'block')
+				}
+
+				var urlParams = new URLSearchParams(window.location.search);
+				id = urlParams.get('id')
+				var artical = '.actical' + id
+				$(artical).css('display', 'block');
+			};
+		</script>
+	</head>
+
+	<body>
+		<!--------------------------------------NAVBAR--------------------------------------->
+		<nav class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
+			<div class="container" style="height: 70px;width:100%;">
+				<div style="width:70%; height: 65px;display: flex;align-items: center;margin: auto;font-size: 20px;">
+					<div style="width: 160px;display: flex;justify-content: center; align-items: center;">
+						<img class="logo-img" src="./images/logo.png"
+							style="width: 90px; height: 90px; border-radius: 50%;" alt="Description" />
+						<a class="navbar-brand" href="./index.html" style="margin: auto;"><strong>燕之波</strong></a>
+					</div>
+					<div class="dropdown" id="dropdown">
+						<a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+							aria-expanded="false">
+							导航区
+						</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="./index.html">首页</a>
+							<a class="dropdown-item" href="./notice.html">通知公告</a>
+							<a class="dropdown-item" href="./activity.html">项目与活动</a>
+							<a class="dropdown-item" href="./member.html">成员组织</a>
+							<a class="dropdown-item" href="./study.html">学习与交流</a>
+						</div>
+					</div>
+
+					<div class="navbar-collapse collapse" style="text-align: center;">
+						<ul class="navbar-nav mr-auto d-flex align-items-center">
+							<li class="nav-item">
+								<a class="nav-link" href="./index.html">首页<span class="sr-only">(current)</span></a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="./notice.html">通知公告</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="./activity.html">项目与活动</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="./member.html">成员组织</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="./study.html">学习与交流</a>
+							</li>
+						</ul>
+
+					</div>
+				</div>
+
+			</div>
+		</nav>
+		<!-- End Navbar -->
+
+		<!-- -------------------------------------修改中间主体内容   begin----------------------------------- -->
+		<div class="container" style="margin-top:100px;border: 1px solid gainsboro; border-radius: 20px;">
+			<!-- 第一个项目详情 -->
+			<div class="actical1" style="display: none;">
+				<h1>电子指南针的设计与制作</h1>
+				<div class="col-md-7 pr-0 picture-carousel">
+					<div id="carouselExampleInterval1" class="carousel slide">
+						<div class="carousel-inner" style="">
+							<div class="carousel-item active">
+								<img src="./images/L1.jpg" class="d-block" alt="..." style="">
+							</div>
+
+							<div class="carousel-item">
+								<img src="./images/L2.jpg" class="d-block" alt="..." style="">
+							</div>
+
+							<div class="carousel-item">
+								<img src="./images/L3.jpg" class="d-block" alt="..." style="">
+							</div>
+						</div>
+						<button class="carousel-control-prev" type="button" data-target="#carouselExampleInterval1"
+							data-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="sr-only">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-target="#carouselExampleInterval1"
+							data-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</button>
+					</div>
+				</div>
+				<div id="contentA" class="content">
+
+					<p>&emsp13;&emsp13;&emsp13;&emsp13;在2024年新学年开学之际，协会成员提议制作一款电子指南针作为送给新生的开学礼物。这一创意不仅富有创意，还涵盖了多个技术领域，为协会成员提供了宝贵的实践机会。
+					</p>
+					<p>&emsp13;&emsp13;&emsp13;&emsp13;电子指南针项目涉及电子电路设计、PCB制板、51单片机开发和软件开发、3D打印等技术。项目分三个方向并行推进。</p>
+					<p> &emsp13;&emsp13;&emsp13;&emsp13;硬件方向：设计和制作指南针的电路和PCB板。需要设计电路图，选择合适的元件，并将电路图转化为实际的PCB板。这个过程不仅考验电路设计能力，还能提高对电子元件的理解。
+					</p>
+					<p>&emsp13;&emsp13;&emsp13;&emsp13;软件方向：编写指南针的控制程序，包括51单片机的编程和数据处理。需要根据硬件的设计需求编写高效、稳定的代码，确保指南针能够准确地显示方向。这个环节可以提升编程能力和对嵌入式系统的理解。
+					</p>
+					<p>&emsp13;&emsp13;&emsp13;&emsp13;3D打印方向：设计适配指南针的3D外壳，并利用3D打印技术制作出来。需要考虑外壳的功能性和美观性，使其既能保护内部电子元件，又便于携带和使用。通过这一过程，成员们不仅掌握了3D建模和打印技术，还提高了设计和制造能力。
+					</p>
+					<p> &emsp13;&emsp13;&emsp13;&emsp13;通过此次活动，协会成员在嵌入式开发和实际操作中积累了丰富的经验，提升了动手实践能力。项目的成功实施不仅能让新生感受到协会的热情，也为成员们提供了一个展示技术能力的良好平台。这一活动体现了团队协作的力量，也为未来更多的实践项目奠定了坚实的基础。
+					</p>
+
+				</div>
+			</div>
+
+			<div class="actical2" style="display: none;">
+				<h1>80m信号源的制作</h1>
+				<div class="col-md-7 pr-0 picture-carousel">
+					<div id="carouselExampleInterval2" class="carousel slide">
+						<div class="carousel-inner" style="">
+							<div class="carousel-item active">
+								<img src="./images/L4.png" class="d-block" alt="..." style="">
+							</div>
+
+							<div class="carousel-item">
+								<img src="./images/L5.png" class="d-block" alt="..." style="">
+							</div>
+
+							<div class="carousel-item">
+								<img src="./images/L3.jpg" class="d-block" alt="..." style="">
+							</div>
+						</div>
+						<button class="carousel-control-prev" type="button" data-target="#carouselExampleInterval2"
+							data-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="sr-only">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-target="#carouselExampleInterval2"
+							data-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</button>
+					</div>
+				</div>
+				<div id="contentA" class="content">
+
+					<p>&emsp13;&emsp13;&emsp13;&emsp13;在2024年新学年开学之际，协会成员提议制作一款电子指南针作为送给新生的开学礼物。这一创意不仅富有创意，还涵盖了多个技术领域，为协会成员提供了宝贵的实践机会。
+					</p>
+					<p>&emsp13;&emsp13;&emsp13;&emsp13;电子指南针项目涉及电子电路设计、PCB制板、51单片机开发和软件开发、3D打印等技术。项目分三个方向并行推进。</p>
+					<p> &emsp13;&emsp13;&emsp13;&emsp13;硬件方向：设计和制作指南针的电路和PCB板。需要设计电路图，选择合适的元件，并将电路图转化为实际的PCB板。这个过程不仅考验电路设计能力，还能提高对电子元件的理解。
+					</p>
+					<p>&emsp13;&emsp13;&emsp13;&emsp13;软件方向：编写指南针的控制程序，包括51单片机的编程和数据处理。需要根据硬件的设计需求编写高效、稳定的代码，确保指南针能够准确地显示方向。这个环节可以提升编程能力和对嵌入式系统的理解。
+					</p>
+					<p>&emsp13;&emsp13;&emsp13;&emsp13;3D打印方向：设计适配指南针的3D外壳，并利用3D打印技术制作出来。需要考虑外壳的功能性和美观性，使其既能保护内部电子元件，又便于携带和使用。通过这一过程，成员们不仅掌握了3D建模和打印技术，还提高了设计和制造能力。
+					</p>
+					<p> &emsp13;&emsp13;&emsp13;&emsp13;通过此次活动，协会成员在嵌入式开发和实际操作中积累了丰富的经验，提升了动手实践能力。项目的成功实施不仅能让新生感受到协会的热情，也为成员们提供了一个展示技术能力的良好平台。这一活动体现了团队协作的力量，也为未来更多的实践项目奠定了坚实的基础。
+					</p>
+				</div>
+			</div>
+
+			<div class="actical3" style="display: none;">
+				<h1>80m测向机的制作</h1>
+				<div class="col-md-7 pr-0 picture-carousel">
+					<div id="carouselExampleInterval3" class="carousel slide">
+						<div class="carousel-inner" style="">
+							<div class="carousel-item active">
+								<img src="./images/D3.jpg" class="d-block" alt="..." style="">
+							</div>
+
+
+						</div>
+						<button class="carousel-control-prev" type="button" data-target="#carouselExampleInterval3"
+							data-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="sr-only">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-target="#carouselExampleInterval3"
+							data-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</button>
+					</div>
+				</div>
+				<div id="contentA" class="content">
+
+					<p>&emsp13;&emsp13;&emsp13;&emsp13;在80米无线电测向活动中，运动员需手持80米测向机寻找隐蔽的信号源。这一过程不仅考验运动员的技术水平，还对测向设备的性能提出了高要求。
+					</p>
+					<p>&emsp13;&emsp13;&emsp13;&emsp13;测向机的关键在于其灵敏度，灵敏度的高低直接影响到运动员能否准确找到信号源。协会的技术团队正在专注于电路设计的优化，以提升测向机的灵敏度。我们对电路板进行迭代优化，通过调整电路布局、改进信号放大和滤波设计，力求在各种环境条件下提供稳定而高效的测向能力。这一过程需要大量的测试和调试，以确保最终设计能够满足实际应用的需求。
+					</p>
+					<p>&emsp13;&emsp13;&emsp13;&emsp13;此外，为了提高测向机的整体使用体验，我们还利用3D打印技术为测向机定制了合适的外壳。3D打印不仅可以实现外壳的个性化设计，还能确保外壳与测向机内部结构的精确匹配，增强了设备的耐用性和便携性。
+					</p>
+					<p>&emsp13;&emsp13;&emsp13;&emsp13;与80米信号源一样，我们计划在测向机制作完成后，及时公开相关资料供大家使用。这不仅有助于推动无线电测向技术的普及，也为广大爱好者提供了更多的学习和实践机会。通过这种开放和共享的方式，协会希望激发更多人对无线电技术的兴趣，提升测向活动的整体水平和参与度。
+					</p>
+				</div>
+			</div>
+
+			<div class="actical4" style="display: none;">
+				<h1>PLC温控系统设计</h1>
+				<div class="col-md-7 pr-0 picture-carousel">
+					<div id="carouselExampleInterval4" class="carousel slide">
+						<div class="carousel-inner" style="">
+							<div class="carousel-item active">
+								<img src="./images/PLC.png" class="d-block" alt="..." style="">
+							</div>
+
+
+						</div>
+						<button class="carousel-control-prev" type="button" data-target="#carouselExampleInterval4"
+							data-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="sr-only">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-target="#carouselExampleInterval4"
+							data-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</button>
+					</div>
+				</div>
+				<div id="contentA" class="content">
+
+					<p>&emsp13;&emsp13;&emsp13;&emsp13;为了激发协会成员对自动化技术的兴趣，协会为成员们提供了PLC设备。通过这些设备，成员们结合冗余设计思想，成功实现了一个温控系统。这一项目不仅涉及PLC编程和冗余模式设计，还涵盖了温度传感器的使用，为成员们提供了全面的技术实践经验。
+					</p>
+					<p>&emsp13;&emsp13;&emsp13;&emsp13;在项目中，成员们首先学习了PLC系统的基本原理，并掌握了如何进行PLC编程。通过编写和调试控制程序，他们深入了解了PLC在自动化系统中的核心作用。这一过程使他们对PLC的操作流程和编程技巧有了更加深入的认识，从而能够灵活应对各种控制需求。
+					</p>
+					<p>&emsp13;&emsp13;&emsp13;&emsp13;冗余模式设计是本项目的一个重要环节。成员们应用了冗余思想，设计了系统的备份方案，以提高温控系统的可靠性和稳定性。通过对异构冗余模式和I/O冗余模式的比较，他们深入理解了冗余设计在提高系统可靠性方面的重要性。这一实践经验使他们认识到，在关键应用场景中，冗余设计能够有效降低系统故障风险，保障系统的连续运行。
+					</p>
+					<p>&emsp13;&emsp13;&emsp13;&emsp13;此外，项目还包括了温度传感器的使用。成员们学会了如何选择和配置适合的温度传感器，并将其与PLC系统进行集成。这不仅增强了他们的硬件连接和调试能力，也使他们对温度测量和控制的原理有了更加实际的了解。
+					</p>
+					<p>&emsp13;&emsp13;&emsp13;&emsp13;通过实现这一PLC温控系统，成员们不仅提升了自己的技术能力，也为未来的职业发展奠定了坚实的基础。这种实践经验帮助他们在实际操作中应用理论知识，同时培养了他们解决实际问题的能力。
+					</p>
+
+				</div>
+			</div>
+
+			<div class="actical5" style="display: none;">
+				<h1>自主定位导航小车</h1>
+				<div class="col-md-7 pr-0 picture-carousel">
+					<div id="carouselExampleInterval5" class="carousel slide">
+						<div class="carousel-inner" style="">
+							<div class="carousel-item active">
+								<img src="./images/L7.jpg" class="d-block" alt="..." style="">
+							</div>
+
+
+						</div>
+						<button class="carousel-control-prev" type="button" data-target="#carouselExampleInterval5"
+							data-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="sr-only">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-target="#carouselExampleInterval5"
+							data-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</button>
+					</div>
+				</div>
+				<div id="contentA" class="content">
+
+					<p>&emsp13;&emsp13;&emsp13;&emsp13;本项目中，我们构建了一个基于神经网络的模块化系统，涵盖目标检测和机器人操作两大功能。项目旨在帮助新人克服对机器人操作系统的畏惧。项目中使用了包括机械分析、嵌入式编程、电路设计、视觉感知、基于神经网络的目标检测和图像处理在内的多项技术。通过3D建模优化机械结构，利用C/C++实现控制算法，使用EDA工具设计PCB电路板，结合OpenCV进行实时图像处理，并采用YOLOv5模型等框架训练神经网络模型。
+					</p>
+					<p>&emsp13;&emsp13;&emsp13;&emsp13;该项目为新人提供了一个完整的、系统化的学习路径，使他们能够在实践中逐步掌握机器人技术的各个方面。通过实际操作和动手实验，成员们不仅学习了技术知识，还在解决问题的过程中培养了创新思维和团队协作能力。模块化设计的应用，使得学习过程更加直观，同时也为未来的扩展和升级提供了灵活性。
+					</p>
+
+				</div>
+			</div>
+			
+			<div class="actical6" style="display: none;">
+				<h1>无线电测向活动</h1>
+				<div class="col-md-7 pr-0 picture-carousel">
+					<div id="carouselExampleInterval6" class="carousel slide">
+						<div class="carousel-inner" style="">
+							<div class="carousel-item active">
+								<img src="./images/L8.jpg" class="d-block" alt="..." style="">
+							</div>
+							
+							<div class="carousel-item">
+								<img src="./images/L9.jpg" class="d-block" alt="..." style="">
+							</div>
+							
+							<div class="carousel-item">
+								<img src="./images/L10.jpg" class="d-block" alt="..." style="">
+							</div>
+				<div class="carousel-item">
+					<img src="./images/L11.jpg" class="d-block" alt="..." style="">
+				</div>
+				<div class="carousel-item">
+					<img src="./images/L12.jpg" class="d-block" alt="..." style="">
+				</div>
+			
+						</div>
+						<button class="carousel-control-prev" type="button" data-target="#carouselExampleInterval6"
+							data-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="sr-only">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-target="#carouselExampleInterval6"
+							data-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</button>
+					</div>
+				</div>
+				<div id="contentA" class="content">
+			
+					<p>&emsp13;&emsp13;&emsp13;&emsp13;无线电测向，又叫无线电猎狐，是一项充满趣味的户外活动。它类似于捉迷藏游戏，通过选手手中的测向机，在规定的区域内，通过监听信号强度和方向寻找藏在树丛中、楼宇间、花园里的电台。这项运动不仅需要选手具备扎实的无线电知识，还需要他们有较强的体力和耐力。无线电测向活动包括快速无线电测向、80米波段测向和2米波段测向等多个项目，玩法丰富多样。协会每周会在校园内组织一次无线电测向活动，这种活动锻炼了同学们的方向感和团队协作能力，深化了对无线电技术的理解，激发了学习兴趣，增强了体质和意志力。同时组织校园无线电测向活动还有一个主要目的，就是选拔优秀队员组成校队，参与明年的秦皇岛市无线电测向比赛以及明年的全国青少年业余无线电测向锦标赛。</p>
+					 <p>&emsp13;&emsp13;&emsp13;&emsp13;无线电测向作为一项高科技含量的运动，与我国的科技强国战略有着密切的联系。国家对于科技创新和技术发展的重视程度日益提高，而无线电测向比赛恰恰是培养和选拔无线电技术人才的重要平台。通过这样的比赛，能够激发大家对无线电技术的兴趣，提升创新能力和实践能力，从而为国家科技事业的发展贡献力量。</p>
+					
+			
+				</div>
+			</div>
+			
+			<div class="actical7" style="display: none;">
+				<h1>参观物联网科技公司</h1>
+				<div class="col-md-7 pr-0 picture-carousel">
+					<div id="carouselExampleInterval7" class="carousel slide">
+						<div class="carousel-inner" style="">
+							<div class="carousel-item active">
+								<img src="./images/L13.jpg" class="d-block" alt="..." style="">
+							</div>
+							
+							<div class="carousel-item">
+								<img src="./images/L14.jpg" class="d-block" alt="..." style="">
+							</div>
+							
+							<div class="carousel-item">
+								<img src="./images/L15.jpg" class="d-block" alt="..." style="">
+							</div>
+				
+			
+						</div>
+						<button class="carousel-control-prev" type="button" data-target="#carouselExampleInterval7"
+							data-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="sr-only">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-target="#carouselExampleInterval7"
+							data-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</button>
+					</div>
+				</div>
+				<div id="contentA" class="content">
+			
+					<p>&emsp13;&emsp13;&emsp13;&emsp13;2024年8月，协会成员参观秦皇岛小马物联网科技开发有限公司。这是一家专注于农业物联网技术的公司。成员们了解到，公司的智能灌溉系统通过传感器实时监测土壤湿度、温度和天气数据，并将信息传输至中央控制系统，自动调节灌溉量和时间。这种精准管理不仅提高了水资源利用效率，还优化了作物的生长环境。在农业防护方面，该公司推出了智能预警系统，能够监测环境变化如气温、湿度和病虫害活动。当系统检测到异常时，会立即发出预警，帮助农户及时采取措施，减少病虫害的扩散。这种系统不仅减少了对农药的使用，还提高了农产品的安全性和质量。</p>
+					  <p>  &emsp13;&emsp13;&emsp13;&emsp13;参观期间，成员们积极与技术人员互动，提出了许多技术问题。技术人员详细解答了这些问题，并分享了公司的研发计划和未来方向。通过这次活动，协会成员不仅增强了对物联网技术的理解，也激发了他们在这一领域进一步探索的兴趣。此次参观为成员们提供了宝贵的实践经验和新思路，对未来的学习和研究具有重要意义。
+					    </p>
+			
+				</div>
+			</div>
+			
+			<div class="actical8" style="display: none;">
+				<h1>无线电测向比赛打卡计时器和成绩统计系统</h1>
+				<div class="col-md-7 pr-0 picture-carousel">
+					<div id="carouselExampleInterval8" class="carousel slide">
+						<div class="carousel-inner" style="">
+							<div class="carousel-item active">
+								<img src="./images/计时.png" class="d-block" alt="..." style="">
+							</div>
+							
+						</div>
+						<button class="carousel-control-prev" type="button" data-target="#carouselExampleInterval8"
+							data-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="sr-only">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-target="#carouselExampleInterval8"
+							data-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</button>
+					</div>
+				</div>
+				<div id="contentA" class="content">
+			
+					<p>&emsp13;&emsp13;&emsp13;&emsp13;在参加秦皇岛市无线电测向比赛和全国青少年业余无线电测向锦标赛的过程中，我们发现比赛使用的计时打卡器和成绩统计系统存在许多可优化的地方。同时，一套计时打卡器和成绩统计系统的采购价格高达上万元，极大地限制了无线电测向运动的推广。因此，我们积极与秦皇岛无线电协会协商，并决定自己制作计时打卡器和成绩统计系统。秦皇岛无线电协会对此非常支持，不仅为我们提供了大量与无线电测向相关的技术资料，后续还会为我们初样产品的测试提供便利。</p>
+					 <p>   &emsp13;&emsp13;&emsp13;&emsp13;首先，我们的当前目标是复现现有的打卡计时器和成绩统计系统的基本功能，包括硬件方面的写卡、读卡、计时和数据存储功能，以及软件方面的数据库建立和成绩统计功能等。</p>
+					 <p>   &emsp13;&emsp13;&emsp13;&emsp13;在软件方面，我们计划使用Java、HTML、JS等编程语言开发成绩统计系统。首先，我们将复现现有系统的功能模块，确保基础功能的正常实现。接着，我们会针对当前系统存在的数据安全性较差、操作复杂等问题进行优化。此外，还计划在系统中增加一些新的功能，例如成绩实时显示、数据分析与可视化等，以提升系统的实用性和智能化水平。</p>
+					  <p>  &emsp13;&emsp13;&emsp13;&emsp13;在硬件方面，首先需要逆向推导现有打卡计时器的电路图，并制作PCB板。针对打卡和计时功能，我们计划使用STM32单片机进行开发。现有的打卡器需要通过十几张不同的卡片来实现关机、成绩清零和计时校准等功能，操作繁琐且存在数据安全隐患。实际上，在比赛中就曾出现有人恶意使用卡片清除部分打卡器数据的情况。我们计划在后续使用LoRa物联网技术对设备进行升级，取消卡片控制，以提高设备的安全性和便捷性。</p>
+					  <p>  &emsp13;&emsp13;&emsp13;&emsp13;经过我们的调研，目前在全国乃至全球范围内，虽然业余无线电测向活动的参与者众多，但并没有一套统一的、细节完备且规则成熟的比赛系统。不同地区的比赛规则在细节上存在差异，尤其是在裁判、计时和成绩统计等方面。为此，我们计划开源计时打卡器和成绩统计系统的技术资料，供大家学习和使用。我们希望通过这一举措，促进业余无线电测向活动的发展与普及，甚至推动业余无线电测向比赛规则的标准化制定。</p>
+					    </p>
+			
+				</div>
+			</div>
+			
+			<div class="actical9" style="display: none;">
+				<h1>电路板焊接</h1>
+				<div class="col-md-7 pr-0 picture-carousel">
+					<div id="carouselExampleInterval9" class="carousel slide">
+						<div class="carousel-inner" style="">
+							<div class="carousel-item active">
+								<img src="./images/焊接.jpg" class="d-block" alt="..." style="">
+							</div>
+							<div class="carousel-item active">
+								<img src="./images/焊接2.jpg" class="d-block" alt="..." style="">
+							</div>
+						</div>
+						<button class="carousel-control-prev" type="button" data-target="#carouselExampleInterval9"
+							data-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="sr-only">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-target="#carouselExampleInterval9"
+							data-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</button>
+					</div>
+				</div>
+				<div id="contentA" class="content">
+					<p> &emsp13;&emsp13;&emsp13;&emsp13;在现代电子制造领域，电路板焊接是一种基础且至关重要的技术。它主要是指将电子元件，如电阻、电容、二极管、晶体管以及集成电路等，通过焊接方式固定在印刷电路板（PCB）上，以形成预定的电路连接。</p>
+					   <p><p>   &emsp13;&emsp13;&emsp13;&emsp13;焊接过程:焊接过程通常开始于清洁和准备好PCB板表面，确保没有油污或灰尘，这对焊接质量至关重要。接着，焊接工程师会将预先准备好的焊膏（一种含有金属焊料的浆料）涂抹在PCB的指定焊盘上。然后，将电子元件准确地放置在焊膏上方的位置上。通过热源，如焊台或回流焊炉，对焊膏进行加热，使金属焊料熔化并流动，从而在冷却后形成稳固的电气和机械连接。</p>
+					  <p>    &emsp13;&emsp13;&emsp13;&emsp13;焊接技术:焊接技术主要分为两种：通孔焊接（THT）和表面贴装技术（SMT）。通孔焊接是指元件引脚穿过PCB孔并通过焊接固定在另一面的技术。而表面贴装技术则是指元件直接贴装在PCB的表面，并通过焊接点固定在板上。</p>
+					   <p>   &emsp13;&emsp13;&emsp13;&emsp13;焊接质量:焊接质量是评估焊接工艺好坏的重要标准。良好的焊接点应光滑、有光泽，且无虚焊、冷焊或焊桥等缺陷。现代焊接过程中，常常使用自动化设备和视觉检测系统来确保焊接质量。</p>
+					  <p>    &emsp13;&emsp13;&emsp13;&emsp13;安全与环保:由于焊接过程中可能涉及到有害化学物质和高温操作，因此安全防护措施非常重要。焊接工程师需要佩戴适当的防护装备，如防护眼镜、手套和适当的通风设备。同时，随着环保意识的提高，无铅焊接技术也越来越受到重视。</p>
+					  </p>
+			
+				</div>
+			</div>
+			
+			<div class="actical10" style="display: none;">
+				<h1>电路设计和PCB制板</h1>
+				<div class="col-md-7 pr-0 picture-carousel">
+					<div id="carouselExampleInterval9" class="carousel slide">
+						<div class="carousel-inner" style="">
+							<div class="carousel-item active">
+								<img src="./images/计时.png" class="d-block" alt="..." style="">
+							</div>
+							
+						</div>
+						<button class="carousel-control-prev" type="button" data-target="#carouselExampleInterval10"
+							data-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="sr-only">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-target="#carouselExampleInterval10"
+							data-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</button>
+					</div>
+				</div>
+				<div id="contentA" class="content">
+					<p>&emsp13;&emsp13;&emsp13;&emsp13;电路设计是指创建电子电路的计划和布局，这涉及到对电子元件如电阻、电容、晶体管、集成电路等进行选择和配置，以实现特定的功能和性能。这项工作通常由电子工程师或设计工程师使用专业的电路设计软件来完成。</p>
+					   <p><p> &emsp13;&emsp13;&emsp13;&emsp13;设计过程:电路设计的过程通常从需求分析开始，工程师需要理解电路的功能需求、性能指标和物理限制。接着，他们会进行概念设计，选择合适的电路拓扑和元件。随后，工程师会使用电路仿真软件对设计进行测试，确保电路在理论上能够满足要求。一旦设计被验证，工程师将进行详细的电路图绘制和元件布局。</p>
+					  <p>  &emsp13;&emsp13;&emsp13;&emsp13;PCB制板:PCB，即印刷电路板，是电子元件的支撑体，并实现电子元件间的电连接。PCB制板是指将设计好的电路图转化为实际的物理电路板的过程。这个过程包括PCB布局设计、PCB制造和测试。
+					   <p> 在PCB布局设计阶段，工程师会考虑信号完整性、电源完整性、电磁兼容性和热管理等因素，以优化电路的性能。然后，PCB制造涉及到多个步骤，包括制作PCB的内层和外层、层压、钻孔、电镀、蚀刻、丝网印刷和表面处理等。</p>
+					   <p> &emsp13;&emsp13;&emsp13;&emsp13;质量与测试:PCB制板完成后，需要进行一系列的测试，包括视觉检查、功能测试和性能测试，以确保PCB符合设计规范和性能要求。现代的PCB制造还可能涉及到高级的测试技术，如X射线检测和自动光学检测。</p>
+					   <p> &emsp13;&emsp13;&emsp13;&emsp13;发展趋势:随着电子技术的发展，电路设计和PCB制板正朝着更高密度、更高性能和更小尺寸的方向发展。新技术如柔性PCB、3D IC堆叠和高性能材料的使用，正在推动这一领域的创新。</p>
+					
+			
+				</div>
+			</div>
+			
+			<div class="actical11" style="display: none;">
+				<h1>3D打印建模</h1>
+				<div class="col-md-7 pr-0 picture-carousel">
+					<div id="carouselExampleInterval11" class="carousel slide">
+						<div class="carousel-inner" style="">
+							<div class="carousel-item active">
+								<img src="./images/D6.png" class="d-block" alt="..." style="">
+							</div>
+							
+						</div>
+						<button class="carousel-control-prev" type="button" data-target="#carouselExampleInterval11"
+							data-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="sr-only">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-target="#carouselExampleInterval11"
+							data-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</button>
+					</div>
+				</div>
+				<div id="contentA" class="content">
+					<p>&emsp13;&emsp13;&emsp13;&emsp13;建模过程:3D打印建模通常开始于构思设计，这可能涉及到手绘草图或使用计算机辅助设计（CAD）软件创建数字模型。设计师利用专业的3D建模软件，如Autodesk Maya、Blender或SolidWorks等，构建模型的几何形状、添加细节和材质，以及进行必要的设计优化。</p>
+					 <p>   &emsp13;&emsp13;&emsp13;&emsp13;建模技术:3D建模技术主要分为两类：曲面建模和实体建模。曲面建模侧重于创建平滑的曲面，常用于汽车和消费品设计。实体建模则侧重于构建实体的内部和外部结构，适用于机械零件和建筑模型。</p>
+					  <p>  &emsp13;&emsp13;&emsp13;&emsp13;打印准备:在3D模型完成后，通常需要进行切片处理，即将模型分割成逐层打印的指令。这一步骤对于确保打印过程的顺利进行至关重要。切片软件会分析模型的几何结构，生成路径指令，指导3D打印机逐层堆叠材料。</p>
+					 <p>   &emsp13;&emsp13;&emsp13;&emsp13;材料与应用:3D打印使用的材料范围广泛，包括塑料、树脂、金属、陶瓷和更多复合材料。不同的材料和打印技术决定了打印对象的性能和应用领域。例如，FDM（熔融沉积建模）技术常用于原型制作和教育领域，而SLA（立体光固化）技术则因其高分辨率而常用于精细的艺术品和珠宝制造。</p>
+					  <p>  &emsp13;&emsp13;&emsp13;&emsp13;优势与挑战:3D打印技术的优势在于其灵活性和定制化能力，能够快速制造复杂结构的零件，减少生产时间和成本。此外，它还支持分布式制造，减少了物流和存储需求。然而，这项技术也面临一些挑战，包括打印速度、材料成本、后处理工作量以及对专业技能的需求。</p>
+				</div>
+			</div>
+			
+			<div class="actical12" style="display: none;">
+				<h1>单片机编程</h1>
+				<div class="col-md-7 pr-0 picture-carousel">
+					<div id="carouselExampleInterval12" class="carousel slide">
+						<div class="carousel-inner" style="">
+							<div class="carousel-item active">
+								<img src="./images/P8.jpg" class="d-block" alt="..." style="">
+							</div>
+							
+						</div>
+						<button class="carousel-control-prev" type="button" data-target="#carouselExampleInterval12"
+							data-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="sr-only">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-target="#carouselExampleInterval12"
+							data-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</button>
+					</div>
+				</div>
+				<div id="contentA" class="content">
+					 <p>&emsp13;&emsp13;&emsp13;&emsp13;编程基础:单片机编程通常使用专门的编程语言，如C语言或汇编语言。C语言因其高级特性和良好的硬件控制能力而成为单片机开发的首选语言。编程过程开始于对单片机的硬件架构和外设的理解，包括处理器的工作方式、内存布局、定时器、中断系统等。</p>
+					   <p>  &emsp13;&emsp13;&emsp13;&emsp13;编程内容:单片机编程的内容非常广泛，包括但不限于初始化硬件外设、实现控制逻辑、处理中断、执行数据通信等。例如，一个简单的单片机程序可能控制LED灯的闪烁，而复杂的程序可能涉及传感器数据采集、无线通信、电机控制等。</p>
+					   <p>  &emsp13;&emsp13;&emsp13;&emsp13;测试与调试:调试是单片机编程的重要环节，它涉及到使用调试器来检查程序的执行情况，包括变量的值、程序的执行流程和硬件的状态。调试工具可以帮助开发者发现和修复程序中的错误，确保程序按照预期工作。</p>
+					   <p> <p>  &emsp13;&emsp13;&emsp13;&emsp13;应用领域:单片机广泛应用于各种嵌入式系统和物联网设备中，如家用电器、汽车电子、工业自动化、医疗设备等。它们的小型化、低功耗和成本效益特性使得单片机成为实现智能化控制的理想选择。</p>
+					   <p>  &emsp13;&emsp13;&emsp13;&emsp13;未来的趋势:随着技术的发展，单片机的计算能力和功能不断增强，同时编程模型和工具也在不断进步。例如，随着物联网技术的发展，单片机编程越来越多地涉及到网络通信和云服务的集成。此外，开源硬件和软件平台的兴起也为单片机编程提供了更多的创新可能性。</p>
+					</div>
+			</div>
+			
+			<div class="actical13" style="display: none;">
+				<h1>物联网技术</h1>
+				<div class="col-md-7 pr-0 picture-carousel">
+					<div id="carouselExampleInterval12" class="carousel slide">
+						<div class="carousel-inner" style="">
+							<div class="carousel-item active">
+								<img src="./images/P8.jpg" class="d-block" alt="..." style="">
+							</div>
+							
+						</div>
+						<button class="carousel-control-prev" type="button" data-target="#carouselExampleInterval12"
+							data-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="sr-only">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-target="#carouselExampleInterval12"
+							data-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</button>
+					</div>
+				</div>
+				<div id="contentA" class="content">
+					 <p>&emsp13;&emsp13;&emsp13;&emsp13;技术基础:物联网技术的基础包括传感器技术、网络通信技术、数据处理技术和智能控制技术。传感器负责收集物理世界的数据，如温度、湿度、光照、声音等。网络通信技术则确保数据能够通过无线或有线的方式传输到处理中心。数据处理技术对收集到的数据进行分析和处理，以提取有用的信息。智能控制技术根据处理结果对设备进行控制，实现自动化操作。</p>
+					   <p>  &emsp13;&emsp13;&emsp13;&emsp13;关键组件:物联网系统的关键组件包括物联网设备、网关、云平台和用户界面。物联网设备是连接到网络的物理设备，它们可以是智能家电、工业设备、医疗设备等。网关是连接物联网设备和互联网的桥梁，负责数据的收集、转换和传输。云平台提供数据存储、处理和分析服务，是物联网系统的大脑。用户界面允许用户与物联网系统交互，监控设备状态和控制设备操作。</p>
+					   <p>  &emsp13;&emsp13;&emsp13;&emsp13;应用领域:物联网技术的应用领域非常广泛，涵盖了智能家居、智能城市、工业自动化、农业、医疗保健、交通物流等多个行业。在智能家居领域，物联网技术可以实现家庭设备的远程控制和自动化管理。在工业自动化领域，物联网技术可以提高生产效率和设备管理水平。在医疗保健领域，物联网技术可以实现远程监控和精准治疗。</p>
+					   <p>  &emsp13;&emsp13;&emsp13;&emsp13;安全隐私:随着物联网设备的增多，安全和隐私问题也日益突出。物联网设备可能成为网络攻击的目标，导致数据泄露或设备被恶意控制。因此，物联网技术的发展需要重视设备的安全防护和用户数据的隐私保护。</p>
+					    <p> &emsp13;&emsp13;&emsp13;&emsp13;未来的趋势:物联网技术的未来发展将更加注重设备的智能化、网络的泛在化和应用的服务化。随着5G、边缘计算、人工智能等技术的发展，物联网将实现更高的数据传输速度、更低的延迟和更强大的数据处理能力。同时，物联网将更加深入人们的日常生活，为用户提供更加丰富和便捷的智能服务。</p>
+					 </div>
+			</div>
+		</div>
+
+
+
+
+
+
+		<!-- -------------------------------------修改中间主体内容  end----------------------------------- -->
+
+
+		<!--------------------------------------
+	  FOOTER
+	  --------------------------------------->
+		<div class="container mt-5">
+			<footer class="bg-white border-top p-3 text-muted small">
+				<div class="row align-items-center justify-content-between" style="height: 65px;">
+					<div style="align-items: center; width: 450px;">
+						<img class="logo-img" src="./images/logo.png"
+							style="width: 90px; height: 90px; border-radius: 50%;" alt="Description" />
+						<a class="navbar-brand" href="./index.html" style="margin: auto;"><strong>燕之波</strong></a>
+						<span style="margin-left: 20px;">Copyright &copy;</span>
+						<script>
+							document.write(new Date().getFullYear())
+						</script>
+						<span>. All rights reserved.</span>
+						</br>
+
+					</div>
+
+					<div>
+						Website was developed by <a target="_blank" class="text-secondary font-weight-bold"
+							href="https://www.wowthemes.net/mundana-free-html-bootstrap-template/">YanZhiBo</a>
+						Laboratory.
+					</div>
+				</div>
+				<div class="row align-items-center justify-content-between" style="height: 30px;">
+				</div>
+				<div style="align-items: center; width: 450px;">
+
+					<a class="navbar-brand" style="margin: auto;color: red;"><strong>联系我们：</strong></a>
+					<span style="margin-top: 10px; font-size: 20px;">QQ 1711446177</span>
+
+
+					</br>
+
+				</div>
+		</div>
+		</footer>
+		</div>
+		<!-- End Footer -->
+	</body>
+
+
+</html>

@@ -63,7 +63,26 @@
 					width: 100%;
 					height: auto;
 				}
+				
 			}
+			.timeline-image {
+							display: block; /* 使图片块级显示，便于居中 */
+							max-width: 100%; /* 限制图片最大宽度，确保响应式 */
+							height: 100%; /* 保持图片宽高比 */
+							margin: 20px auto; /* 居中显示，上下添加一些外边距 */
+							border: 1px solid #ccc; /* 可选，为图片添加边框 */
+							border-radius: 8px; /* 可选，为图片添加圆角边框 */
+							box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 可选，添加阴影效果 */
+			}
+			p,span{
+				margin-bottom: 1rem;
+				font-size: 20px;
+				line-height: 2;
+			}
+			h1, h2 {
+			    color: #0056b3;
+			}
+			
 		</style>
 		<script>
 		    function toggleContent(sectionId) {
@@ -106,7 +125,7 @@
 			}
 			 
 			window.onload=function(){
-				toggleContent('introduction');
+				toggleContent('history');
 				var device=detectDeviceType();
 				console.log(device)
 				if(device=='Desktop'){
@@ -141,7 +160,7 @@ NAVBAR
 					  <div class="dropdown-menu">
 					    <a class="dropdown-item"  href="./index.html">首页</a>
 					    <a class="dropdown-item"  href="./notice.html">通知公告</a>
-					    <a class="dropdown-item"  href="./activity.html">活动与展示</a>
+					    <a class="dropdown-item"  href="./activity.html">项目与活动</a>
 						<a class="dropdown-item"  href="./member.html">成员组织</a>
 						<a class="dropdown-item"  href="./study.html">学习与交流</a>
 					  </div>
@@ -155,7 +174,7 @@ NAVBAR
 								<a class="nav-link" href="./notice.html">通知公告</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="./activity.html">活动与展示</a>
+								<a class="nav-link" href="./activity.html">项目与活动</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="./member.html">成员组织</a>
@@ -174,40 +193,158 @@ NAVBAR
 		<!-- End Navbar -->
 
 		<!-- -------------------------------------修改中间主体内容   end----------------------------------- -->
-		<div class="container" style="margin-top: 100px;">
+		<div class="container" style="margin-top: 100px; ">
 			<div class="row no-gutters">
-				<div class="col-md-3">
+				<div class="col-md-2">
 
 					<aside class="sidebar" style=" background-color: white; padding: 20px;">
-						<h3>无线电相关</h3>
+						<h3>协会相关</h3>
 						<ul class="list-unstyled">
-							<li><a href="#" onclick="toggleContent('introduction')">无线电的简介</a></li>
-							<li><a href="#" onclick="toggleContent('history')">无线电的历史</a></li>
+							<li><a href="#" onclick="toggleContent('history')">大事记</a></li>
+							<li><a href="#" onclick="toggleContent('need')">协会招新</a></li>
 						</ul>
 					</aside>
 				</div>
-				<div class="col-md-9 content">
-					<section id="introduction" class="active">
-						<h2>无线电技术简介</h2>
-						<p>无线电技术是一种利用无线电波在发射端和接收端之间进行信息传输的技术。它在19世纪末由几位科学家和发明家的研究中诞生，其中包括尼古拉·特斯拉和伽利尔摩·马可尼。无线电波是一种电磁波，具有波长和频率，可以在自由空间中传播而不需要任何物理介质，如电线或光纤。
-						</p>
-						<p>无线电技术的应用非常广泛，包括但不限于以下几个领域：</p>
-						<ul>
-							<li><strong>通信：</strong>无线电波用于电话、传真、无线电广播和电视广播，以及卫星通信。</li>
-							<li><strong>导航：</strong>全球定位系统（GPS）和其他导航系统使用无线电信号来确定位置和提供导航服务。</li>
-							<li><strong>遥控：</strong>遥控器使用无线电信号来控制电视、音响和其他家用电子设备。</li>
-							<li><strong>紧急服务：</strong>警察、消防和救护车等服务依赖无线电通信来协调紧急响应。</li>
-							<li><strong>军事：</strong>无线电用于军事通信、雷达系统和导弹制导。</li>
-							<li><strong>业余爱好：</strong>业余无线电爱好者（HAM）使用无线电设备进行全球通信和实验。</li>
-						</ul>
-						<p>无线电技术的发展不仅推动了通信领域的革命，也极大地促进了科学探索和技术创新。随着无线通信技术的不断进步，如蓝牙、Wi-Fi和5G，无线电的应用将更加广泛和深入人们的日常生活。</p>
-					</section>
+				<div class="col-md-10 content" style="">
+					
+					
 					<section id="history">
-						<h2>无线电的历史</h2>
-						<p>无线电技术的发展可以追溯到19世纪末，当时许多科学家开始研究电磁波的性质。尼古拉·特斯拉和伽利尔摩·马可尼是无线电技术的重要先驱之一。特斯拉在1893年的美国电气工程师学会会议上展示了无线传输的可能性，而马可尼则成功实现了跨越英吉利海峡的无线电通信，这标志着无线电技术的重大突破。
-						</p>
-						<p>随着时间的推移，无线电技术不断发展，从最初的简单点对点通信发展到了今天的复杂网络。第二次世界大战期间，无线电技术得到了广泛应用，包括雷达系统和通信设备。战后，无线电技术继续快速发展，引入了许多新的应用，如移动电话、无线互联网等。
-						</p>
+						<div class="timeline">
+							<div class="timeline-container">
+								<h1 style="text-align: center;">大事记</h1>
+							
+								<p class="timeline-description">&emsp13;&emsp13;&emsp13;&emsp13;&emsp13;&emsp13;燕山大学无线电测向协会——燕之波，成立于2024年6月。自成立以来，协会得到了学校团委和老师的大力支持，同时也获得了兄弟协会的热心帮助。虽然成立时间不长，但协会在短短几个月内已经展现出巨大的活力和潜力。燕之波最初以无线电测向活动为核心。随着协会的发展，活动范围逐渐拓展至更广泛的技术领域，如80米信号源制作、电子指南针的设计与制作、PLC技术应用以及循迹小车的研发等。这些项目不仅丰富了成员们的技术储备，还极大提升了成员的动手能力和创新思维。年轻的燕之波凭借着协会成员的热情与实力，逐步在校园内崭露头角，成为推动技术创新与交流的新兴力量，展现出蓬勃的发展前景。</p>
+								<span class="timeline-date">2024年05月11日</span>
+								<h2 class="timeline-title">进行试验性测向活动</h2>
+								<p class="timeline-description">&emsp13;&emsp13;&emsp13;&emsp13;&emsp13;&emsp13;容伟洪、徐千壹、王浩，协会的三位创始人，于2024年5月11日，率先在燕山大学塔山公园进行了试验性质的测向活动。本次活动主要是熟悉无线电信号在户外环境的传播特性。5月13日，三位同学又在燕山大学信息科学与工程学院附近进行测向活动。本次活动是为了熟悉高大障碍物对无线电信号的影响。这两次活动为无线电测向活动在校园的展开积累了宝贵经验。</p>
+									<img src="./images/D1.png" alt="80 Meter Band Signal Source" class="timeline-image">
+									<figcaption style="text-align: center;">协会成员正在进行测试活动</figcaption>
+							</div>
+							<div class="timeline-container">
+								<span class="timeline-date">2024年05月12日</span>
+								<h2 class="timeline-title">自制80米波段信号源</h2>
+								<p class="timeline-description">&emsp13;&emsp13;&emsp13;&emsp13;&emsp13;&emsp13;2024年5月12日，协会决定自制80米波段信号源，组建了技术小组，并邀请王云老师进行技术指导。初期目标是复刻哈尔滨工业大学业余无线电俱乐部开源的80米波段信号源。同时，协会购置了示波器、信号发生器、稳压电源等实验设备，为信号源的制作与调试提供实验条件。</p>
+									<img src="./images/D2.jpg" alt="80 Meter Band Signal Source" class="timeline-image">
+									<figcaption style="text-align: center;">协会成员正在使用示波器调试功放电路</figcaption>
+							</div>
+							<div class="timeline-container">
+								<span class="timeline-date">2024年05月13日</span>
+								<h2 class="timeline-title">自制80米波段测向机</h2>
+								<p class="timeline-description">&emsp13;&emsp13;&emsp13;&emsp13;&emsp13;&emsp13;2024年5月13日，协会决定自制80米波段测向机。第一阶段的目标是基于商家开源的原理图进行复现。掌握相关技术原理后，再对电路设计进行优化，以提高测向机的灵敏度。目前，复现工作已初步完成，接下来将对电路板进行迭代优化，通过调整电路布局、改进信号放大和滤波设计，力求在各种环境下提供稳定高效的测向能力。这一过程需要大量的测试和调试，以确保最终设计能够满足实际应用需求。</p>
+									<img src="./images/D3.JPG" alt="80 Meter Band Signal Source" class="timeline-image">
+									<figcaption style="text-align: center;">初代测向机样品</figcaption>
+							</div>
+											
+							<div class="timeline-container">
+								<span class="timeline-date">2024年05月18日</span>
+								<h2 class="timeline-title">协会首次组织了无线电测向活动</h2>
+								<p class="timeline-description">&emsp13;&emsp13;&emsp13;&emsp13;&emsp13;&emsp13;2024年5月18日，在学校领导和老师的大力支持下，协会组织了首次大规模的80米无线电测向活动。此次活动在燕山大学的塔山公园举行，吸引了众多大学生和小学生参与，使无线电测向运动在校园内引起了广泛关注。通过这次活动，参与者不仅对无线电测向有了初步认识，也感受到了这项运动的趣味性和挑战性，激发了更多学生对无线电测向的兴趣，推动了这一技术在校园的进一步传播。</p>
+								<img src="./images/D4.jpg" alt="80 Meter Band Signal Source" class="timeline-image">
+								<figcaption style="text-align: center;">第一次校园测向活动照片</figcaption>
+							</div>
+							<div class="timeline-container">
+								<span class="timeline-date">2024年06月09日</span>
+								<h2 class="timeline-title">协会购置第一台3D打印机</h2>
+								<p class="timeline-description">&emsp13;&emsp13;&emsp13;&emsp13;&emsp13;&emsp13;2024年6月9日，协会购置第一台3D打印机。通过3D打印，协会可以快速制作产品原型，加速项目验证，减少外部制作的时间和成本。打印机还将帮助成员进行个性化设计，满足特殊需求，提升创意灵活性。此外，3D打印能够降低小批量生产的费用，非常适合制作复杂零件，同时也提供了学习和提升机械设计、建模技能的机会。
+									<img src="./images/D6.png" alt="80 Meter Band Signal Source" class="timeline-image">
+									<figcaption style="text-align: center;">3D打印模型和电子指南针外壳</figcaption>
+								</p>
+							</div>
+							<div class="timeline-container">
+							<span class="timeline-date">2024年06月23日</span>
+							<h2 class="timeline-title">协会制作第一个电子指南针</h2>
+							<p class="timeline-description">&emsp13;&emsp13;&emsp13;&emsp13;&emsp13;&emsp13;2024年6月23日，协会决定制作一款电子指南针，作为送给新生的开学礼物。该项目涉及电子电路设计、PCB制板、51单片机开发、软件开发和3D打印等技术，为协会成员提供了宝贵的实践机会。最终，第一版电子指南针于8月30日成功完成，后续我们将对初代电子指南针进行升级优化,加入更多功能模块。
+								<img src="./images/D7.jpg" alt="80 Meter Band Signal Source" class="timeline-image">
+								<figcaption style="text-align: center;">初代电子指南针样品</figcaption>
+							</p>
+						</div>
+						<div class="timeline-container">
+							<span class="timeline-date">2024年06月29日</span>
+							<h2 class="timeline-title">协会参加秦皇岛无线电测向比赛</h2>
+							<p class="timeline-description">&emsp13;&emsp13;&emsp13;&emsp13;&emsp13;&emsp13;2024年6月29日，燕之波协会成员首次以燕山大学代表队的身份，参加了秦皇岛市无线电测向比赛。比赛项目包括摩尔斯码听抄、80米测向和2米测向等多个项目。参赛的代表队成员在赛场上奋力拼搏，展现了过硬的技术水平和顽强的斗志。经过激烈的角逐，代表队取得了优异的成绩，为燕山大学赢得了荣誉。这次比赛不仅提高了协会成员的实践能力，也增强了团队凝聚力，为今后参与大型无线电测向比赛积累了经验。
+								<img src="./images/D8.png" alt="80 Meter Band Signal Source" class="timeline-image">
+								<figcaption style="text-align: center;">协会成员参加秦皇岛市无线电测向比赛</figcaption>
+							</p>
+						</div>
+						<div class="timeline-container">
+							<span class="timeline-date">2024年07月25日</span>
+							<h2 class="timeline-title">协会参加全国青少年业余无线电测向锦标赛</h2>
+							<p class="timeline-description">&emsp13;&emsp13;&emsp13;&emsp13;&emsp13;&emsp13;2024年7月25日至30日，全国青少年业余无线电测向锦标赛在天津市举行。燕之波协会派出王浩、容伟洪、徐千壹三名成员组成燕山大学代表队参赛。最终，代表队斩获男子144MHz团体接力银牌，男子个人全能金银牌，男子3.5MHz个人铜牌，女子快速测向个人铜牌，女子144MHz个人银牌。这些骄人的成绩不仅展示了同学们的实力，更为学校争得了荣誉。
+								<img src="./images/D9.png" alt="80 Meter Band Signal Source" class="timeline-image">
+								<figcaption style="text-align: center;">奖杯和奖牌展示</figcaption>
+							</p>
+						</div>
+						<div class="timeline-container">
+							<span class="timeline-date">2024年08月09日</span>
+							<h2 class="timeline-title">协会计划制作无线电打卡系统</h2>
+							<p class="timeline-description">&emsp13;&emsp13;&emsp13;&emsp13;&emsp13;&emsp13;2024年8月9日，燕之波协会决定与秦皇岛市无线电协会合作，共同研制业余无线电测向比赛中使用的计时打卡器和成绩统计系统。协会负责研制工作，秦皇岛市无线电协会负责为初代产品测试提供便利。项目主要分成硬件和软件两个方面， 在硬件方面，首先需要逆向推导现有打卡计时器的电路图，并制作PCB板。针对打卡和计时功能，我们计划使用STM32单片机进行开发。在软件方面，我们计划使用Java、HTML、JS等编程语言开发成绩统计系统。首先，我们将复现现有系统的功能模块，确保基础功能的正常实现。接着，我们会针对当前系统存在的数据安全性较差、操作复杂等问题进行优化。当前该项目正在紧张进行中。
+								<img src="./images/计时.png" alt="80 Meter Band Signal Source" class="timeline-image">
+								<figcaption style="text-align: center;">打卡计时器系统</figcaption>
+							</p>
+						</div>
+						</div>
+					</section>
+					
+					<section id="need" >
+						<div class="招募信息">
+							<h1 style="text-align: center;">欢迎加入燕之波社团！我们需要你！</h1>
+							<p>只要你喜欢无线电,嵌入式开发,3D打印,焊接技术等等,不论你是的新手，还是已经拥有一定经验的爱好者，这里都有你的一席之地。</p>
+							<ul>
+								<li><strong>实践机会：</strong>亲自动手制作无线电设备，电路板焊接，从基础电路到复杂系统。</li>
+								<li><strong>技术培训：</strong>同学们可以和"导师们"一对一交流培训。</li>
+								<li><strong>竞赛挑战：</strong>参与全国无线电测向锦标赛，各类计算机跟软件竞赛,与顶尖选手一决高下。</li>
+								<li><strong>团队合作：</strong>与来自不同背景的成员一起工作，共同解决问题。</li>
+							</ul>
+							<p>如果你对以下内容感兴趣,或者具有很强的技术能力,那就赶快来加入我们吧！</p>
+							<a href="./images/need.xlsx" download>点击下载Excel文件</a>
+						</div>
+						<table class="table table-light">
+							<thead>
+							  <tr>
+								<th scope="col">需求</th>
+								<th scope="col">焊接技术</th>
+								<th scope="col">3D打印</th>
+								<th scope="col">软件开发</th>
+								<th scope="col">嵌入式学习</th>
+								<th scope="col">测向运动</th>
+							  </tr>
+							</thead>
+							<tbody>
+							  <tr>
+								<th scope="row">1</th>
+								<td> 协会需要能够焊接电路板的同学。即使没有经验也没关系，我们会提供指导。首先从简单的焊接操作入手，先练习直插式元器件的焊接技术，接着学习贴片元器件的焊接。在此过程中，同学们需要掌握电烙铁、加热焊台和热风枪等工具的使用，还要学会处理复杂电路板的焊接技巧。这些操作都由经验丰富的学长学姐进行指导。当具备一定的焊接能力后，同学们将负责焊接一些电路板，例如信号源、测向机和计时打卡系统的电路板。</td>
+								<td>solidwork使用，掌握草图建模方式：这是3D打印的灵魂所在，只有掌握了草图建模你才能随心所欲的实现自己的想法。</td>
+								<td>掌握基本前端开发语言HTML、CSS、Js、Jquery：前端开发的地基，无论多么 高层次的前端技术都是通过地基搭建而来，重要性不言而喻</td>
+								<td>51单片机的学习：51单片机是学习嵌入式的入门必走的第一步，是很重要的一步基础。我们协会的电子指南针就是使用51单片机实现的。</td>
+								<td>我们需要对无线电测向活动感兴趣的同学加入，并希望同学们能够经常参与和组织测向活动。每次活动前，需做好宣传工作，吸引更多学生参与。定期举办这些活动的一个主要目的是选拔优秀队员，组建校队，参加明年的秦皇岛市无线电测向比赛。更重要的是，明年的全国青少年业余无线电测向锦标赛计划在秦皇岛举行，校队也要参加这一国家级赛事。</td>
+							  </tr>
+							  <tr>
+								<th scope="row">2</th>
+								<td></td>
+								<td>3D打印机的使用：学会使用3D打印机不仅仅是只会把模型运行打印，更重要的是在打印的过程中去解决可能发生的问题。</td>
+								<td>掌握后端开发语言C、JAVA：后端开发的地基，无论多么高层次的后端技术都是通过地基搭建而来，重要性不言而喻</td>
+								<td>STM32的学习：STM32是ARM架构的单片机，能够实现的功能比51单片机多很多，可以满足嵌入式开发的大部分需求。我们后续要做的改进版指南针、无线电测向运动使用的信号源、无线电测向比赛的打卡器等等都需要使用STM32或者其他ARM架构的芯片</td>
+								<td></td>
+							  </tr>
+							  <tr>
+								<th scope="row">3</th>
+								<td></td>
+								<td>切片软件的使用和参数调节：切片软件是决定模型成品好坏的关键，这需要积累很多的打印经验形成一套属于你的"成功学"</td>
+								<td>掌握SQL语言和常用数据库的使用：数据库就是数据的载体，是软件开发不能缺少的部分，合理的设计数据库关乎软件的性能、可维护性、扩展性以及用户体验</td>
+								<td></td>
+								<td></td>
+							  </tr>
+							  <tr>
+								<th scope="row">4</th>
+								<td></td>
+								<td>为各种项目建模服务：我们学习的目标是为了更好地解决实际问题，项目是检验我们技能和水平的最好方式</td>
+								<td>掌握后端开发技术框架Spring、SpringMVC、SpringBoot、SpringCloud：这些都是目前JAVA开发的主流技术框架，使用它们能够使我们更关注业务逻辑的实现，而不必过多关注底层的基础设施和配置细节。</td>
+								<td></td>
+								<td></td>
+							  </tr>
+							  
+							</tbody>
+						  </table>
 					</section>
 				</div>
 			</div>
@@ -215,35 +352,33 @@ NAVBAR
 
 		<!-- -------------------------------------修改中间主体内容  end----------------------------------- -->
 
-
-		<!--------------------------------------
-	  FOOTER
-	  --------------------------------------->
-		<div class="container mt-5">
-			<footer class="bg-white border-top p-3 text-muted small">
-				<div class="row align-items-center justify-content-between" style="height: 65px;">
-					<div style="align-items: center; width: 450px;">
+		<!--------------------------------------FOOTER--------------------------------------->
+		<footer class="bg-white border-top p-3 text-muted small">
+			<div class="container">
+				<div class="row align-items-center justify-content-between">
+					<div class="col-12 col-md-4">
 						<img class="logo-img" src="./images/logo.png"
-							style="width: 90px; height: 90px; border-radius: 50%;" alt="Description" />
+							style="width: 90px; height: 90px; border-radius: 50%;" alt="Logo" />
 						<a class="navbar-brand" href="./index.html" style="margin: auto;"><strong>燕之波</strong></a>
+						<div class="contact-info">
+							<br>
+							<br>
+						</div>
+					</div>
+					<div class="col-12 col-md-8 text-md-right">
 						<span style="margin-left: 20px;">Copyright &copy;</span>
 						<script>
 							document.write(new Date().getFullYear())
 						</script>
 						<span>. All rights reserved.</span>
-					</div>
-
-					<div>
-						Website was developed by <a target="_blank" class="text-secondary font-weight-bold"
-							href="https://www.wowthemes.net/mundana-free-html-bootstrap-template/">YanZhiBo</a>
-						Laboratory.
+						<div>
+							Website was developed by <a target="_blank" class="text-secondary font-weight-bold"
+								href="https://www.wowthemes.net/mundana-free-html-bootstrap-template/">YanZhiBo</a> Laboratory.
+						</div>
 					</div>
 				</div>
-			</footer>
-		</div>
-		<!-- End Footer -->
-		
+			</div>
+		</footer>
+		<!-- End Footer -->		
 	</body>
-
-
 </html>

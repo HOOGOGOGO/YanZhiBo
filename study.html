@@ -31,8 +31,33 @@
 			a:hover{
 				text-decoration: none;
 			}
-			
-			
+			/*卡片CSS*/
+			.card-half {
+				width: 45%;
+				height: 150px;
+				display: flex;
+				padding: 5px;
+				border: 1px solid rgba(202, 198, 198, 0.788);
+				border-radius: 10px;
+				margin: auto;
+			}
+			.card-left-half{
+				width: 48%;
+				border-radius: 10%;
+				
+			}
+			.card-left-half img{
+				margin-top: 10%;
+				width: 100%;
+				height: 80%;
+				
+			}
+			.card-right-half{
+				margin-left: 2%;
+				width: 48%;
+				border-radius: 10%;
+				
+			}		
 		</style>
 			
 		
@@ -57,7 +82,7 @@ NAVBAR
 					  <div class="dropdown-menu">
 					    <a class="dropdown-item"  href="./index.html">首页</a>
 					    <a class="dropdown-item"  href="./notice.html">通知公告</a>
-					    <a class="dropdown-item"  href="./activity.html">活动与展示</a>
+					    <a class="dropdown-item"  href="./activity.html">项目与活动</a>
 						<a class="dropdown-item"  href="./member.html">成员组织</a>
 						<a class="dropdown-item"  href="./study.html">学习与交流</a>
 					  </div>
@@ -71,7 +96,7 @@ NAVBAR
 								<a class="nav-link" href="./notice.html">通知公告</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="./activity.html">活动与展示</a>
+								<a class="nav-link" href="./activity.html">项目与活动</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="./member.html">成员组织</a>
@@ -90,10 +115,10 @@ NAVBAR
 		<!-- End Navbar -->
 
 		<!-- -------------------------------------修改中间主体内容   end----------------------------------- -->
-		<div class="container" style="margin-top: 100px;">
+		<div class="container" style="margin-top: 100px; ">
 			<div class="row no-gutters">
 				<div class="col-md-3" >
-					<div class="card" style="width: 18rem;border: 1px solid grey;">
+					<div class="cards" style="width: 18rem;border: 1px solid grey;">
 						<div class="card-body" style="font-size: 30px;background: #9abbf4;">
 							<h4 class="card-title">学习与交流</h4>
 						</div>
@@ -126,7 +151,7 @@ NAVBAR
 					        <div class="card mb-3" style="max-width: 540px;">
 					            <div class="row no-gutters">
 					                <div class="col-md-4">
-					                    <img src="./images/p1.jpg" class="card-img" alt="...">
+					                    <img src="./images/工坊.jpg" class="card-img" alt="...">
 					                </div>
 					                <div class="col-md-8">
 					                    <div class="card-body">
@@ -145,67 +170,74 @@ NAVBAR
 					    <p></p>
 					    <div class="row">
 					        <!-- 技术卡片 -->
-					        <div class="col-md-6 col-lg-4 mb-4" onclick="showDetails('tech1')">
-					            <div class="card h-100">
-					                <div class="card-body">
-					                    <h5 class="card-title">电路板焊接</h5>
-					                    <p class="card-text">点击了解更多</p>
-					                </div>
-					            </div>
-					        </div>
-					        <div class="col-md-6 col-lg-4 mb-4" onclick="showDetails('tech2')">
-					            <div class="card h-100">
-					                <div class="card-body">
-					                    <h5 class="card-title">电路设计</h5>
-					                    <p class="card-text">点击了解更多</p>
-					                </div>
-					            </div>
-					        </div>
-					        <div class="col-md-6 col-lg-4 mb-4" onclick="showDetails('tech3')">
-					            <div class="card h-100">
-					                <div class="card-body">
-					                    <h5 class="card-title">PCB制板</h5>
-					                    <p class="card-text">点击了解更多</p>
-					                </div>
-					            </div>
-					        </div>
-					        <div class="col-md-6 col-lg-4 mb-4" onclick="showDetails('tech4')">
-					            <div class="card h-100">
-					                <div class="card-body">
-					                    <h5 class="card-title">3D打印建模</h5>
-					                    <p class="card-text">点击了解更多</p>
-					                </div>
-					            </div>
-					        </div>
-					        <div class="col-md-6 col-lg-4 mb-4" onclick="showDetails('tech5')">
-					            <div class="card h-100">
-					                <div class="card-body">
-					                    <h5 class="card-title">单片机编程</h5>
-					                    <p class="card-text">点击了解更多</p>
-					                </div>
-					            </div>
-					        </div>
-					        <div class="col-md-6 col-lg-4 mb-4" onclick="showDetails('tech6')">
-					            <div class="card h-100">
-					                <div class="card-body">
-					                    <h5 class="card-title">物联网技术</h5>
-					                    <p class="card-text">点击了解更多</p>
-					                </div>
-					            </div>
-					        </div>
-					        <div class="col-md-6 col-lg-4 mb-4" onclick="showDetails('tech7')">
-					            <div class="card h-100">
-					                <div class="card-body">
-					                    <h5 class="card-title">计算机视觉</h5>
-					                    <p class="card-text">点击了解更多</p>
-					                </div>
-					            </div>
-					        </div>
-					    </div>
+							<div class="container" >
+								<div  style="display: flex; margin-bottom: 20px;">
+									<div class="card-half" >
+										<div class="card-left-half">
+											<img src="./images/焊接.jpg" class="" alt="..." >
+										</div>
+										<div class="card-right-half">
+											<h5 class="card-title"><a href="activity_details.html?id=9">电路板焊接</a></h5>
+											<p class="card-text">电子元件通过焊接固定到印刷电路板。（点击查看详情）</p>
+										</div>
+									</div>
+									<div class="card-half" >
+										<div class="card-left-half">
+											<img src="./images/p9.jpg" class="" alt="..." >
+										</div>
+										<div class="card-right-half">
+											<h5 class="card-title"><a href="activity_details.html?id=10">电路设计和PCB制板</a></h5>
+											<p class="card-text">创建电子设备蓝图并将这些设计转化为实际电路板。</p>
+										</div>
+									</div>
+								  </div>
+								</div>
+								<div class="container" >
+									<div  style="display: flex; margin-bottom: 20px;">
+										<div class="card-half" >
+											<div class="card-left-half">
+												<img src="./images/3d.jpg" class="" alt="..." >
+											</div>
+											<div class="card-right-half">
+												<h5 class="card-title"><a href="activity_details.html?id=11">3D打印建模</a></h5>
+												<p class="card-text">使用计算机辅助设计创建三维数字模型，以便通过3D打印机将其物理打印出来。</p>
+											</div>
+										</div>
+										<div class="card-half" >
+											<div class="card-left-half">
+												<img src="./images/p8.jpg" class="" alt="..." >
+											</div>
+											<div class="card-right-half">
+												<h5 class="card-title"><a href="activity_details.html?id=12">单片机编程</a></h5>
+												<p class="card-text">使用单片机进行编程、控制电子设备以及实现自动化。</p>
+											</div>
+										</div>
+									</div>
+							</div>
+							<div class="container" >
+								<div  style="display: flex; margin-bottom: 20px;">
+									<div class="card-half" >
+										<div class="card-left-half">
+											<img src="./images/物联网.png" class="" alt="..." >
+										</div>
+										<div class="card-right-half">
+											<h5 class="card-title"><a href="activity_details.html?id=13">物联网技术</a></h5>
+											<p class="card-text">通过互联网连接和控制各种物理设备的技术。</p>
+										</div>
+									</div>
+									<div class="card-half"  style="border: 1px solid white;">
+										<div class="card-left-half">
+										</div>
+										<div class="card-right-half">
+										</div>
+									</div>
+				
+								</div>
+								
+			
+								
+							</div>
 					</div>
-				</div>
-			</div>
-		</div>
 
 		<!-- -------------------------------------修改中间主体内容  end----------------------------------- -->
 
@@ -249,9 +281,6 @@ NAVBAR
 			
 			// 默认显示第一个内容区域（书籍推荐）
 			showContent('learn');
-			//showContent('tech');
-			// 显示详细信息的函数
-			// 显示详细信息的函数
 			// 显示详细信息的函数
 			function showDetails(id) {
 			    // 隐藏所有卡片
@@ -263,12 +292,10 @@ NAVBAR
 			    // 定义详细内容
 			    var details = {
 			        'tech1': '<h2>电路板焊接详情</h2><p>这里是关于电路板焊接的详细信息...</p>',
-			        'tech2': '<h2>电路设计详情</h2><p>这里是关于电路设计的详细信息...</p>',
-			        'tech3': '<h2>PCB制版详情</h2><p>这里是关于PCB制版的详细信息...</p>',
-			        'tech4': '<h2>3D打印建模详情</h2><p>这里是关于3D打印建模的详细信息...</p>',
-			        'tech5': '<h2>单片机编程</h2><p>这里是关于单片机编程的详细信息...</p>',
-			        'tech6': '<h2>物联网技术</h2><p>这里是关于物联网技术的详细信息...</p>',
-			        'tech7': '<h2>计算机视觉</h2><p>这里是关于计算机视觉的详细信息...</p>'
+			        'tech2': '<h2>电路设计与PCB制板</h2><p>这里是关于电路设计与PCB制板的详细信息...</p>',
+			        'tech3': '<h2>3D打印建模详情</h2><p>这里是关于3D打印建模的详细信息...</p>',
+			        'tech4': '<h2>单片机编程</h2><p>这里是关于单片机编程的详细信息...</p>',
+			        'tech5': '<h2>物联网技术</h2><p>这里是关于物联网技术的详细信息...</p>',
 			        // 其他技术的详情...
 			    };
 			

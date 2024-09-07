@@ -5,7 +5,7 @@
 
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		
+
 		<title>YanZhiBo</title>
 
 		<!-- Load style sheets -->
@@ -24,167 +24,208 @@
 				margin-top: 50px;
 			}
 
-			#video-icon1{
+			#video-icon1 {
 				display: block;
 				position: relative;
 				top: 200px;
 				left: 250px;
 				z-index: 5;
-				
+
 				border-radius: 50%;
 				height: 48px;
 				width: 48px;
 				background-color: white;
 			}
-			
-			#video-icon1:hover{
+
+			#video-icon1:hover {
 				cursor: pointer;
 				-webkit-filter: drop-shadow(0px 0px 10px white);
 			}
-			#video-icon2{
+
+			#video-icon2 {
 				display: none;
 				position: relative;
 				top: 200px;
 				left: 250px;
 				z-index: 5;
-				
+
 				border-radius: 50%;
 				height: 48px;
 				width: 48px;
 				background-color: white;
 			}
-			#video-icon2:hover{
+
+			#video-icon2:hover {
 				cursor: pointer;
 				-webkit-filter: drop-shadow(0px 0px 5px white);
 			}
-			
-			
+
+			.card-half {
+				width: 49%;
+				height: 150px;
+				display: flex;
+				padding: 5px;
+				border: 1px solid rgba(202, 198, 198, 0.788);
+				border-radius: 10px;
+				margin: auto;
+			}
+
+			.card-left-half {
+				width: 43%;
+				border-radius: 10%;
+
+			}
+
+			/* .card-left-half img{
+				width: 100%;
+				height: 100%;
+				
+			} */
+			.card-right-half {
+				margin-left: 2%;
+				width: 53%;
+				border-radius: 10%;
+
+			}
+
+			.activity-img {
+				border-radius: 15px;
+				height: 300px;
+				width: 90%;
+
+			}
+
+			.project-img {
+				margin-left: 2%;
+				margin-top: 2%;
+				width: 90%;
+				height: 90%;
+				align-content: center;
+			}
 		</style>
 
 		<script>
-			$(document).ready(function(){
+			$(document).ready(function() {
 				var Banner = document.getElementById("Banner");
 				var myVideo = document.getElementById("video1");
 				var playIcon = document.getElementById("video-icon1");
 				var pauseIcon = document.getElementById("video-icon2");
-				
+
 				//当点击video窗口时
-				$("#video1").click(function(){
+				$("#video1").click(function() {
 					console.log(pauseIcon.style.display);
-					if(pauseIcon.style.display == "none" || pauseIcon.style.display == ""){
+					if (pauseIcon.style.display == "none" || pauseIcon.style.display == "") {
 						playIcon.style.display = "none";
 						pauseIcon.style.display = "block";
 						pauseIcon.style.opacity = 1;
-					}else{
+					} else {
 						pauseIcon.style.display = "none";
 						playIcon.style.display = "block";
 					}
 				});
-				
+
 				//当播放图标被点击
-				playIcon.addEventListener("click",function(){
+				playIcon.addEventListener("click", function() {
 					myVideo.play();
 					pauseIcon.style.display = "block";
 					playIcon.style.display = "none";
-					
+
 				});
-				
+
 				//当点击暂停图标时
-				$("#video-icon2").click(function(){
+				$("#video-icon2").click(function() {
 					myVideo.pause();
 					pauseIcon.style.display = "none";
 					playIcon.style.display = "block";
-					
+
 				});
-				
+
 				//当鼠标悬浮于视频的窗口时
-				$("#video1").mouseover(function(){
-					if(pauseIcon.style.display == "block"){
+				$("#video1").mouseover(function() {
+					if (pauseIcon.style.display == "block") {
 						pauseIcon.style.opacity = 1;
 					}
-					if(playIcon.style.display == "block"){
+					if (playIcon.style.display == "block") {
 						playIcon.style.opacity = 1;
 					}
 					myVideo.controls = "controls";
-					
+
 				});
-				
-				
+
+
 				//当鼠标悬浮于暂停图标时
-				$("#video-icon2").mouseover(function(){
-					if(pauseIcon.style.display == "block"){
+				$("#video-icon2").mouseover(function() {
+					if (pauseIcon.style.display == "block") {
 						pauseIcon.style.opacity = 1;
 					}
 					myVideo.controls = "controls";
 				});
-				
+
 				//当鼠标移出视频的窗口时
-				$("#video1").mouseout(function(){
-					if(pauseIcon.style.display == "block"){
+				$("#video1").mouseout(function() {
+					if (pauseIcon.style.display == "block") {
 						pauseIcon.style.opacity = 0;
 					}
-					if(playIcon.style.display == "block"){
+					if (playIcon.style.display == "block") {
 						playIcon.style.opacity = 0;
 					}
 					myVideo.controls = false;
 				});
-				
+
 				//当鼠标悬浮于播放图标时
-				$("#video-icon1").mouseover(function(){
-					if(playIcon.style.display == "block"){
+				$("#video-icon1").mouseover(function() {
+					if (playIcon.style.display == "block") {
 						playIcon.style.opacity = 1;
 					}
 					myVideo.controls = "controls";
 				});
-				
+
 			});
-			
+
 			function detectDeviceType() {
-			    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-			 
-			    // 检测是否为移动设备
-			    if (/android/i.test(userAgent)) {
-			        return 'Android Device';
-			    }
-			 
-			    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-			        return 'iOS Device';
-			    }
-			 
-			    // 检测是否为 Windows Phone 设备
-			    if (/windows phone/i.test(userAgent)) {
-			        return 'Windows Phone Device';
-			    }
-			 
-			    // 检查是否包含 "Mobile" 关键词，用于其他非 iOS/Android 移动设备
-			    if (/mobile/i.test(userAgent)) {
-			        return 'Mobile Device';
-			    }
-			 
-			    // 如果以上条件都不满足，我们假设是桌面设备
-			    return 'Desktop';
-			}
-			 
-			window.onload=function(){
-				
-				var device=detectDeviceType();
-				console.log(device)
-				if(device=='Desktop'){
-					$('#navbar').css('display','block')
-					$('#dropdown').css('display','none')
-				}else{
-					$('#navbar').css('display','none')
-					$('#dropdown').css('display','block')
+				const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+				// 检测是否为移动设备
+				if (/android/i.test(userAgent)) {
+					return 'Android Device';
 				}
-				
+
+				if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+					return 'iOS Device';
+				}
+
+				// 检测是否为 Windows Phone 设备
+				if (/windows phone/i.test(userAgent)) {
+					return 'Windows Phone Device';
+				}
+
+				// 检查是否包含 "Mobile" 关键词，用于其他非 iOS/Android 移动设备
+				if (/mobile/i.test(userAgent)) {
+					return 'Mobile Device';
+				}
+
+				// 如果以上条件都不满足，我们假设是桌面设备
+				return 'Desktop';
+			}
+
+			window.onload = function() {
+
+				var device = detectDeviceType();
+				console.log(device)
+				if (device == 'Desktop') {
+					$('#navbar').css('display', 'block')
+					$('#dropdown').css('display', 'none')
+				} else {
+					$('#navbar').css('display', 'none')
+					$('#dropdown').css('display', 'block')
+				}
+
 			};
-			</script>
+		</script>
 	</head>
 
 	<body>
-		<!--------------------------------------
-NAVBAR
---------------------------------------->
+		<!--------------------------------------NAVBAR--------------------------------------->
 		<nav class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
 			<div class="container" style="height: 70px;width:100%;">
 				<div style="width:70%; height: 65px;display: flex;align-items: center;margin: auto;font-size: 20px;">
@@ -194,18 +235,19 @@ NAVBAR
 						<a class="navbar-brand" href="./index.html" style="margin: auto;"><strong>燕之波</strong></a>
 					</div>
 					<div class="dropdown" id="dropdown">
-					   <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-					      导航区
-					    </a>
-					  <div class="dropdown-menu">
-					    <a class="dropdown-item"  href="./index.html">首页</a>
-					    <a class="dropdown-item"  href="./notice.html">通知公告</a>
-					    <a class="dropdown-item"  href="./activity.html">活动与展示</a>
-						<a class="dropdown-item"  href="./member.html">成员组织</a>
-						<a class="dropdown-item"  href="./study.html">学习与交流</a>
-					  </div>
+						<a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+							aria-expanded="false">
+							导航区
+						</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="./index.html">首页</a>
+							<a class="dropdown-item" href="./notice.html">通知公告</a>
+							<a class="dropdown-item" href="./activity.html">项目与活动</a>
+							<a class="dropdown-item" href="./member.html">成员组织</a>
+							<a class="dropdown-item" href="./study.html">学习与交流</a>
+						</div>
 					</div>
-					
+
 					<div class="navbar-collapse collapse" style="text-align: center;">
 						<ul class="navbar-nav mr-auto d-flex align-items-center">
 							<li class="nav-item">
@@ -215,7 +257,7 @@ NAVBAR
 								<a class="nav-link" href="./notice.html">通知公告</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="./activity.html">活动与展示</a>
+								<a class="nav-link" href="./activity.html">项目与活动</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="./member.html">成员组织</a>
@@ -233,6 +275,93 @@ NAVBAR
 		<!-- End Navbar -->
 
 		<!-- -------------------------------------修改中间主体内容   end----------------------------------- -->
+		<div class="jumbotron jumbotron-fluid" style="margin-top:100px;">
+			<div class="container">
+				<h1 class="display-4">协会项目</h1>
+				<p class="lead">项目</p>
+			</div>
+		</div>
+		<!--卡片加超链接-->
+		<div class="container" style="margin-top:100px;">
+			<div style="display: flex; margin-bottom: 20px;">
+				<div class="card-half">
+					<div class="card-left-half">
+						<img src="./images/L18.png" class="project-img" alt="...">
+					</div>
+					<div class="card-right-half">
+						<h5 class="card-title"><a href="activity_details.html?id=1">指南针项目</a></h5>
+						<p>燕之波协会制作的电子指南针项目为新生带来创新礼物，同时锻炼了成员的多方面技能。</p>
+						<p class="card-text"></p>
+					</div>
+				</div>
+				<div class="card-half">
+					<div class="card-left-half">
+						<img src="./images/L5.png" class="project-img" alt="...">
+					</div>
+					<div class="card-right-half">
+						<h5 class="card-title"><a href="activity_details.html?id=2">80m信号源</a></h5>
+						<p>协会自制低成本80米信号源，促进无线电测向运动并计划开源资料。
+						</p>
+						<p class="card-text"></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div style="display: flex; margin-bottom: 20px;">
+				<div class="card-half">
+					<div class="card-left-half">
+						<img src="./images/L6.jpg" class="project-img" alt="...">
+					</div>
+					<div class="card-right-half">
+						<h5 class="card-title"><a href="activity_details.html?id=3">80m测向机</a></h5>
+						<p>协会自制80米测向机，提升性能，培养人才，并将开源资料。
+
+						</p>
+						<p class="card-text"></p>
+					</div>
+				</div>
+				<div class="card-half">
+					<div class="card-left-half">
+						<img src="./images/L19.png" class="project-img" alt="...">
+					</div>
+					<div class="card-right-half">
+						<h5 class="card-title"><a href="activity_details.html?id=4">PLC温控系统设计</a></h5>
+						<p>协会通过PLC温控项目培养了成员的自动化技术技能。</p>
+						<p class="card-text"></p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="container">
+			<div style="display: flex; margin-bottom: 20px;">
+				<div class="card-half">
+					<div class="card-left-half">
+						<img src="./images/L7.jpg" class="project-img" alt="...">
+					</div>
+					<div class="card-right-half">
+						<h5 class="card-title"><a href="activity_details.html?id=5">自主定位导航小车</a></h5>
+						<p>项目通过模块化神经网络系统，简化机器人技术学习，培养新人的实践技能和团队协作。</p>
+						<p class="card-text"></p>
+					</div>
+				</div>
+				<div class="card-half" style="border: 1px solid white;">
+					<div class="card-left-half">
+					</div>
+					<div class="card-right-half">
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="jumbotron jumbotron-fluid" style="margin-top:100px;">
+			<div class="container">
+				<h1 class="display-4">协会参与的活动</h1>
+				<p class="lead">活动</p>
+			</div>
+		</div>
 		<div class="container" style="margin-top: 100px;">
 
 			<div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
@@ -242,212 +371,175 @@ NAVBAR
 							<p class="text-uppercase font-weight-bold">
 								<a class="text-danger">快讯</a>
 							</p>
-							<h1 class="display-4 secondfont mb-3 font-weight-bold">2024年全国青少年业余无线电测向锦标赛</h1>
-							<p class="mb-3">
-								燕之波协会由王浩、徐千壹、容伟洪组成的代表队参加了2024年全国青少年业余无线电测向锦标赛，
-								最终，代表队斩获男子144MHz团体接力银牌，男子个人全能金银牌，男子3.5MHz个人铜牌，女子快速测向个人铜牌，女子144MHz个人银牌。
+							<h1 class="display-4 secondfont mb-3 font-weight-bold" style="font-size: 30px;"><a
+									href="activity_details.html?id=6">无线电测向活动</a></h1>
+							<p class="mb-2">
+								协会每周在校园内组织一次无线电测向活动，欢迎所有感兴趣的同学参与。通过这些活动，协会希望激发更多学生对无线电测向的兴趣，推动这项运动在校园内的推广与普及。
 							</p>
-
 						</div>
 						<div class="col-md-6 pr-0">
 							<div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
-								<div class="carousel-inner" style="border-radius: 3%;">
+								<div class="carousel-inner">
 
 									<div class="carousel-item active" data-interval="2000">
-										<img src="./images/activity/1.JPG" class="d-block w-100" alt="..."
-											style="height: 370px;">
+										<img src="./images/L8.jpg" class="d-block activity-img" alt="..."
+											style="">
 									</div>
 
-									<div class="carousel-item" data-interval="2000">
-										<img src="./images/activity/2.jpg" class="d-block w-100" alt="..."
-											style="height: 370px;">
-									</div>
+								</div>
+							</div>
+						</div>
 
-									<div class="carousel-item" data-interval="2000">
-										<img src="./images/activity/4.png" class="d-block w-100" alt="..."
-											style="height: 370px;">
-									</div>
-									<div class="carousel-item" data-interval="2000">
-										<img src="./images/activity/5.png" class="d-block w-100" alt="..."
-											style="height: 370px;">
-									</div>
-									<div class="carousel-item" data-interval="2000">
-										<img src="./images/activity/6.jpeg" class="d-block w-100" alt="..."
-											style="height: 370px;">
-									</div>
-									<div class="carousel-item" data-interval="2000">
-										<img src="./images/activity/3.jpg" class="d-block w-100" alt="..."
-											style="height: 370px;">
+						<!-- <div class="container ">
+							<h5 class="font-weight-bold spanborder"><span>Next</span></h5>
+							
+						</div> -->
+
+						<div class="container">
+							<hr />
+							<div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
+								<div class="h-100 tofront">
+									<div class="row justify-content-between">
+										<div class="col-md-6 pt-6 pb-6 pr-6 align-self-center">
+											<p class="text-uppercase font-weight-bold">
+												<a class="text-danger">快讯</a>
+											</p>
+											<h1 class="display-4 secondfont mb-3 font-weight-bold"
+												style="font-size: 30px;"><a href="activity_details.html?id=1">燕之波协会电子指南针成品展示</a></h1>
+											<p class="mb-3">
+												电子指南针完全由协会成员制作而成，包括电路设计、PCB制版、程序编写和应用测试。
+											</p>
+
+										</div>
+										<div class="col-md-6 pr-0">
+											<div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+												<div class="carousel-inner">
+										
+													<div class="carousel-item active">
+														<img src="./images/指南针.jpg" class="d-block activity-img" alt="..."
+															style="">
+													</div>
+										
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
-
-
-
-								<button class="carousel-control-prev" type="button"
-									data-target="#carouselExampleInterval" data-slide="prev">
-									<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-									<span class="sr-only">Previous</span>
-								</button>
-								<button class="carousel-control-next" type="button"
-									data-target="#carouselExampleInterval" data-slide="next">
-									<span class="carousel-control-next-icon" aria-hidden="true"></span>
-									<span class="sr-only">Next</span>
-								</button>
-							</div><strong></strong>
+							</div>
 						</div>
 
-						<div class="col-md-12">
-							<article class="article-post col-md-9">
-								<p>
-									无线电测向，又叫无线电猎狐，是一项充满趣味的户外活动。
-									它类似于捉迷藏游戏，通过选手手中的测向机，在规定的区域内，通过监听信号强度和方向寻找藏在树丛中、楼宇间、花园里的电台。
-									这项运动不仅需要选手具备扎实的无线电知识，还需要他们有较强的体力和耐力。
-								</p>
-								<p>
-									无线电测向作为一项高科技含量的运动，与我国的科技强国战略有着密切的联系。国家对于科技创新和技术发展的重视程度日益提高，而无线电测向比赛恰恰是培养和选拔无线电技术人才的重要平台。
-									通过这样的比赛，能够激发大家对无线电技术的兴趣，提升创新能力和实践能力，从而为国家科技事业的发展贡献力量。
-								</p>
-								<p>
-									国家高度重视无线电测向运动的发展，计划将其纳入明年的全运会。
-									这不仅体现了国家对这项运动的认可，也展示了国家对科技教育和青少年科技素质培养的重视。作为一项新兴的体育项目，无线电测向将有助于推动全民健身和科技教育的结合，提升我国在国际科技领域的竞争力。
-									更令人振奋的消息是，明年的全国青少年业余无线电测向锦标赛将会在我们美丽的秦皇岛举办。
-									这是一个展示自我的绝佳机会，也是与全国各地的优秀选手交流学习的良好平台，学校鼓励广大同学积极参与。
-								</p>
 
-							</article>
+						<div class="container">
+							<hr />
+							<div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
+								<div class="h-100 tofront">
+									<div class="row justify-content-between">
+										<div class="col-md-6 pt-6 pb-6 pr-6 align-self-center">
+											<p class="text-uppercase font-weight-bold">
+												<a class="text-danger">快讯</a>
+											</p>
+											<h1 class="display-4 secondfont mb-3 font-weight-bold"
+												style="font-size: 30px;"><a href="activity_details.html?id=8">无线电测向比赛打卡计时器及成绩统计系统</a></h1>
+											<p class="mb-3">
+												协会成员参与秦皇岛市和全国青少年无线电测向比赛，发现计时打卡器和成绩统计系统存在可优化之处。
+												与秦皇岛无线电协会合作，计划复现系统基本功能并重点解决数据丢失风险和操作繁琐问题，提升系统安全性和便利性。
+											</p>
 
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="container pt-4 pb-4">
-
-			<h5 class="font-weight-bold spanborder"><span>Read next</span></h5>
-			<hr />
-		</div>
-
-		<div class="container">
-
-			<div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
-				<div class="h-100 tofront">
-					<div class="row justify-content-between">
-						<div class="col-md-6 pt-6 pb-6 pr-6 align-self-center">
-							<p class="text-uppercase font-weight-bold">
-								<a class="text-danger">快讯</a>
-							</p>
-							<h1 class="display-4 secondfont mb-3 font-weight-bold">燕之波协会电子指南针成品展示</h1>
-							<p class="mb-3">
-								电子指南针完全由协会成员制作而成，包括电路设计、PCB制版、程序编写和应用测试。
-							</p>
-
-						</div>
-						<div class="col-md-6 pr-0">
-							<div id="carouselExampleInterval2" class="carousel slide" data-ride="carousel">
-								<div class="carousel-inner" style="border-radius: 3%;">
-
-									<div class="carousel-item active" data-interval="2000">
-										<img src="./images/activity/7.png" class="d-block w-100" alt="..."
-											style="height: 370px;">
-									</div>
-
-									<div class="carousel-item" data-interval="2000">
-										<img src="./images/activity/8.png" class="d-block w-100" alt="..."
-											style="height: 370px;">
-									</div>
-
-									<div class="carousel-item" data-interval="2000">
-										<img src="./images/activity/9.png" class="d-block w-100" alt="..."
-											style="height: 370px;">
+										</div>
+										<div class="col-md-6 pr-0">
+											<div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+												<div class="carousel-inner">
+										
+													<div class="carousel-item active">
+														<img src="./images/计时.png" class="d-block activity-img" alt="..."
+															style="">
+													</div>
+										
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
-
-
-
-								<button class="carousel-control-prev" type="button"
-									data-target="#carouselExampleInterval2" data-slide="prev">
-									<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-									<span class="sr-only">Previous</span>
-								</button>
-								<button class="carousel-control-next" type="button"
-									data-target="#carouselExampleInterval2" data-slide="next">
-									<span class="carousel-control-next-icon" aria-hidden="true"></span>
-									<span class="sr-only">Next</span>
-								</button>
-							</div><strong></strong>
+							</div>
 						</div>
-
-					</div>
-				</div>
-			</div>
-		</div>
-
-
-		<div class="container" style="margin-top: 50px;">
-			<hr>
-			<div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
-				<div class="h-100 tofront">
-					<div class="row justify-content-between">
-						<div class="col-md-6 pt-6 pb-6 pr-6 align-self-center">
-							<p class="text-uppercase font-weight-bold">
-								<a class="text-danger">快讯</a>
-							</p>
-							<h1 class="display-4 secondfont mb-3 font-weight-bold">2024年秦皇岛市无线电测向比赛</h1>
-							<p class="mb-3">
-								燕之波协会由王浩、徐千壹、容伟洪组成的代表队参加了2024年秦皇岛市无线电测向比赛，
-								最终斩获佳绩。
-							</p>
-
-						</div>
-
-						<div class="col-md-6" id="Banner">
-							<svg id='video-icon1' xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-caret-right-square-fill" viewBox="0 0 16 16">
-							  <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm5.5 10a.5.5 0 0 0 .832.374l4.5-4a.5.5 0 0 0 0-.748l-4.5-4A.5.5 0 0 0 5.5 4v8z"/>
-							</svg>
-							<svg id='video-icon2' xmlns="http://www.w3.org/2000/svg"  width="50" height="50" fill="currentColor" class="bi bi-pause-circle-fill" viewBox="0 0 16 16">
-							  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.25 5C5.56 5 5 5.56 5 6.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C7.5 5.56 6.94 5 6.25 5zm3.5 0c-.69 0-1.25.56-1.25 1.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C11 5.56 10.44 5 9.75 5z"/>
-							</svg>
-							<video id="video1" height="370px" width="550px"  loop="loop" preload="auto" >
-								<source src="./images/cx.mov" type="video/mp4" 
-									>
-							</video>
-						</div>
-
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- -------------------------------------修改中间主体内容  end----------------------------------- -->
+						<div class="container">
+							<hr />
+							<div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
+								<div class="h-100 tofront">
+									<div class="row justify-content-between">
+										<div class="col-md-6 pt-6 pb-6 pr-6 align-self-center">
+											<p class="text-uppercase font-weight-bold">
+												<a class="text-danger">快讯</a>
+											</p>
+											<h1 class="display-4 secondfont mb-3 font-weight-bold"
+												style="font-size:30px;"><a href="activity_details.html?id=7">参观物联网科技公司</a></h1>
+											<p class="mb-3">
+												2024年8月，协会成员参观了一家农业物联网技术公司，了解了智能灌溉和预警系统。这些系统通过传感器监测土壤和环境数据，自动调节灌溉和预警病虫害，提高水资源效率，减少农药使用，增强农产品安全性。
+												成员们与技术人员深入交流，对物联网技术有了更深的认识，激发了进一步探索的兴趣。
+											</p>
+										</div>
+										<div class="col-md-6 pr-0">
+											<div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+												<div class="carousel-inner">
+										
+													<div class="carousel-item active">
+														<img src="./images/L13.jpg" class="d-block activity-img" alt="..."
+															style="">
+													</div>
+										
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- -------------------------------------修改中间主体内容  end----------------------------------- -->
 
 
-		<!--------------------------------------
+							<!--------------------------------------
 	  FOOTER
 	  --------------------------------------->
-		<div class="container mt-5">
-			<footer class="bg-white border-top p-3 text-muted small">
-				<div class="row align-items-center justify-content-between" style="height: 65px;">
-					<div style="align-items: center; width: 450px;">
-						<img class="logo-img" src="./images/logo.png"
-							style="width: 90px; height: 90px; border-radius: 50%;" alt="Description" />
-						<a class="navbar-brand" href="./index.html" style="margin: auto;"><strong>燕之波</strong></a>
-						<span style="margin-left: 20px;">Copyright &copy;</span>
-						<script>
-							document.write(new Date().getFullYear())
-						</script>
-						<span>. All rights reserved.</span>
-					</div>
+							<div class="container mt-5">
+								<footer class="bg-white border-top p-3 text-muted small">
+									<div class="row align-items-center justify-content-between" style="height: 65px;">
+										<div style="align-items: center; width: 450px;">
+											<img class="logo-img" src="./images/logo.png"
+												style="width: 90px; height: 90px; border-radius: 50%;"
+												alt="Description" />
+											<a class="navbar-brand" href="./index.html"
+												style="margin: auto;"><strong>燕之波</strong></a>
+											<span style="margin-left: 20px;">Copyright &copy;</span>
+											<script>
+												document.write(new Date().getFullYear())
+											</script>
+											<span>. All rights reserved.</span>
+											</br>
 
-					<div>
-						Website was developed by <a target="_blank" class="text-secondary font-weight-bold"
-							href="https://www.wowthemes.net/mundana-free-html-bootstrap-template/">YanZhiBo</a>
-						Laboratory.
-					</div>
-				</div>
-			</footer>
-		</div>
-		<!-- End Footer -->
+										</div>
+
+										<div>
+											Website was developed by <a target="_blank"
+												class="text-secondary font-weight-bold"
+												href="https://www.wowthemes.net/mundana-free-html-bootstrap-template/">YanZhiBo</a>
+											Laboratory.
+										</div>
+									</div>
+									<div class="row align-items-center justify-content-between" style="height: 30px;">
+									</div>
+									<div style="align-items: center; width: 450px;">
+
+										<a class="navbar-brand"
+											style="margin: auto;color: red;"><strong>联系我们：</strong></a>
+										<span style="margin-top: 10px; font-size: 20px;">QQ 1711446177</span>
+
+
+										</br>
+
+									</div>
+							</div>
+							</footer>
+						</div>
+						<!-- End Footer -->
 	</body>
 
 
